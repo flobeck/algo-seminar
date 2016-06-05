@@ -5,3 +5,6 @@
 *.gz
 *.out
 *.lua
+*.bbl 
+*.blg 
+*.cls
