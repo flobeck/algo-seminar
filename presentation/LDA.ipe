@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70107" creator="Ipe 7.2.2">
-<info created="D:20090429144355" modified="D:20160607224518" title="Latent Dirichlet Allocation" author="Florian Becker"/>
+<info created="D:20090429144355" modified="D:20160614135312" title="Latent Dirichlet Allocation" author="Florian Becker"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -7003,7 +7003,7 @@ h
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="title BACKGROUND" active="BACKGROUND"/>
 <text layer="title" matrix="1 0 0 1 -213 -46" pos="213 427" stroke="black" type="label" width="250.961" height="21.1904" depth="6.292" valign="baseline" size="Large">\bf Topic Recognition</text>
-<text matrix="1 0 0 1 -213 -123" pos="213 427" stroke="black" type="label" width="466.842" height="13.2396" depth="3.938" valign="bottom" size="small">\bf Algorithmic Methods in the Humanities $\,\cdot\,$ \today</text>
+<text matrix="1 0 0 1 -213 -123" pos="213 427" stroke="black" type="label" width="476.934" height="13.2396" depth="3.938" valign="bottom" size="small">\bf Algorithmic Methods in the Humanities $\,\cdot\,$ \today</text>
 <text layer="BACKGROUND" matrix="1 0 0 1 -213 -141" pos="213 427" stroke="black" type="label" width="125.708" height="13.244" depth="0.176" valign="baseline" size="small">\bf \name</text>
 <group matrix="1 0 0 1 2 0">
 <path fill="KITblack50">
@@ -7049,8 +7049,7 @@ h
 <layer name="eta"/>
 <layer name="zeta"/>
 <view layers="pagenumbers_page outline" active="outline"/>
-<view layers="pagenumbers_page outline" active="outline"/>
-<view layers="pagenumbers_page outline" active="eta"/>
+<view layers="pagenumbers_page eta" active="eta"/>
 <text layer="delta" matrix="1 0 0 1 -223.772 -60.4874" transformations="translations" pos="224 112" stroke="black" type="label" width="415.507" height="13.123" depth="4.026" valign="baseline" size="small">page numbers created with the Pagenumbers Ipelet</text>
 <text matrix="1 0 0 1 -223.772 -80.643" transformations="translations" pos="224 112" stroke="black" type="label" width="357.644" height="10.81" depth="3.26" valign="baseline" size="footnote">https://sourceforge.net/p/ipe7/wiki/Pagenumbers\_Ipelet/</text>
 <path stroke="black" pen="heavier" arrow="normal/normal">
@@ -7080,27 +7079,6 @@ h
 \item What is Topic Recognition?
 \item Notation and Preliminaries
 \end{itemize}</text>
-<path matrix="1 0 0 1 0 -128" stroke="black" fill="KITblack15">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<text matrix="1 0 0 1 0 320" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Dirichlet Distribution</text>
 <path stroke="black" fill="KITblack15">
 744 404.812 m
 744 392.218 l
@@ -7122,11 +7100,7 @@ h
 h
 </path>
 <text matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Introduction</text>
-<text matrix="1 0 0 1 0 272" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="35.7651" depth="23.5935" valign="top">\begin{itemize}
-\item What is Topic Recognition?
-\item Notation and Preliminaries
-\end{itemize}</text>
-<path matrix="1 0 0 1 0 -272" stroke="black" fill="KITblack15">
+<path layer="eta" matrix="1 0 0 1 0 -144" stroke="black" fill="KITblack15">
 744 404.812 m
 744 392.218 l
 744 387.218
@@ -7146,8 +7120,219 @@ h
 744 404.812 c
 h
 </path>
-<text matrix="1 0 0 1 0 176" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.5677" depth="2.352" valign="top">Generative Model</text>
+<text matrix="1 0 0 1 0 304" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Dirichlet Distribution</text>
+<text matrix="1 0 0 1 0 256" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="35.7651" depth="23.5935" valign="top">\begin{itemize}
+\item What is Topic Recognition?
+\item Notation and Preliminaries
+\end{itemize}</text>
+<path matrix="1 0 0 1 0 -144" stroke="black" fill="KITblack15">
+744 404.812 m
+744 392.218 l
+744 387.218
+739 382.218
+734 382.218 c
+2 382.218 l
+-3 382.218
+-8 387.218
+-8 392.218 c
+-8 404.812 l
+-8 409.812
+-3 414.812
+2 414.812 c
+734 414.812 l
+739 414.812
+744 409.812
+744 404.812 c
+h
+</path>
+<text matrix="1 0 0 1 0 304" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Dirichlet Distribution</text>
+<text matrix="1 0 0 1 0 256" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="35.7651" depth="23.5935" valign="top">\begin{itemize}
+\item What is Topic Recognition?
+\item Notation and Preliminaries
+\end{itemize}</text>
+<text matrix="1 0 0 1 0 416" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="35.7651" depth="23.5935" valign="top">\begin{itemize}
+\item What is Topic Recognition?
+\item Notation and Preliminaries
+\end{itemize}</text>
+<path stroke="black" fill="KITblack15">
+744 404.812 m
+744 392.218 l
+744 387.218
+739 382.218
+734 382.218 c
+2 382.218 l
+-3 382.218
+-8 387.218
+-8 392.218 c
+-8 404.812 l
+-8 409.812
+-3 414.812
+2 414.812 c
+734 414.812 l
+739 414.812
+744 409.812
+744 404.812 c
+h
+</path>
+<text matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Introduction</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
+</page>
+<page title="(Probabilitic) Topic Models - Intro">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<view layers="alpha pagenumbers_page beta" active="gamma"/>
+<view layers="alpha pagenumbers_page beta gamma" active="gamma"/>
+<text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="38.1686" depth="25.9945" valign="top">\begin{itemize}
+\item Automatically extract \textbf{topics} from documents
+\item Organizing and searching of large collections of text
+\end{itemize}</text>
+<path layer="beta" matrix="1.21966 0 0 1 -80.8703 80" stroke="KITblack" fill="KITblack15">
+73.6 191.08 m
+73.6 220 l
+652.4 220 l
+657.4 220
+662.4 215
+662.4 210 c
+662.4 191.08 l
+h
+</path>
+<path matrix="1.21966 0 0 2.67519 -80.8703 -240.095" stroke="KITblack">
+662.4 191.08 m
+662.4 150.99 l
+83.6 150.99 l
+78.6 150.99
+73.6 155.99
+73.6 160.99 c
+73.6 191.08 l
+h
+</path>
+<text matrix="1.21966 0 0 1 -80.8703 80" transformations="translations" pos="79.6001 214" stroke="KITblack" type="minipage" width="576.8" height="16.8168" depth="4.606" valign="top">\textbf{Algorithm:} Corpus $\rightarrow$ topics</text>
+<text matrix="1.47661 0 0 -62563.53 -101.324 11579518.32" transformations="translations" pos="79.6001 185.08" stroke="black" type="minipage" width="576.8" height="35.378" depth="23.2015" valign="top">\begin{tabular}{ l l }
+ $\textbf{Input}$      &amp; corpus, int {\it K}  (number of topics) \\ 
+ $\textbf{Output}$   &amp;  {\it K} topics\\   
+\end{tabular}
+
+
+
+</text>
+<path layer="gamma" matrix="0.268817 0 0 2.89449 64 -240.807" stroke="black" fill="yellow">
+744 132.812 m
+744 120.218 l
+744 115.218
+739 110.218
+734 110.218 c
+2 110.218 l
+-3 110.218
+-8 115.218
+-8 120.218 c
+-8 132.812 l
+-8 137.812
+-3 142.812
+2 142.812 c
+292.8 142.812 l
+443.2 152.59 l
+368 142.812 l
+734 142.812 l
+739 142.812
+744 137.812
+744 132.812 c
+h
+</path>
+<text matrix="1 0 0 1 80 192" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="192" height="29.0276" depth="16.856" valign="top">Distribution over \\
+ words</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
+</page>
+<page title="Topic Simplex">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<path layer="alpha" matrix="1 0 0 1 0 32" stroke="black" pen="heavier">
+192 320 m
+576 320 l
+384 48 l
+384 48 l
+h
+</path>
+<use matrix="1 0 0 1 0 32" name="mark/disk(sx)" pos="576 320" size="large" stroke="KITred"/>
+<use matrix="1 0 0 1 0 32" name="mark/disk(sx)" pos="192 320" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 32" name="mark/disk(sx)" pos="384 48" size="large" stroke="KITblue"/>
+<use matrix="1 0 0 1 0 32" name="mark/disk(sx)" pos="192 320" size="large" stroke="KITpalegreen"/>
+<text matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="16.5694" depth="4.3365" valign="top">A document is a distribution over topics</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
+</page>
+<page title="Latent Dirichlet Allocation">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<path layer="alpha" matrix="1.21966 0 0 1 -80.8703 192" stroke="KITblack" fill="KITblack15">
+73.6 191.08 m
+73.6 220 l
+652.4 220 l
+657.4 220
+662.4 215
+662.4 210 c
+662.4 191.08 l
+h
+</path>
+<path matrix="1.21966 0 0 5.11646 -80.8703 -594.572" stroke="KITblack">
+662.4 191.08 m
+662.4 150.99 l
+83.6 150.99 l
+78.6 150.99
+73.6 155.99
+73.6 160.99 c
+73.6 191.08 l
+h
+</path>
+<text matrix="1.21966 0 0 1 -80.8703 192" transformations="translations" pos="79.6001 214" stroke="KITblack" type="minipage" width="576.8" height="16.5694" depth="4.3365" valign="top">Assumptions</text>
+<text matrix="1.47661 0 0 -62563.53 -101.324 11579630.32" transformations="translations" pos="79.6001 185.08" stroke="black" type="minipage" width="576.8" height="95.5083" depth="83.4715" valign="top">\begin{itemize}
+\item A document is represented as a bag of words
+\item A document is about multiple topics
+\item A topic is a distribution over words
+\item Order of documents in corpus does not matter
+\item Every document is generated by a \textbf{generative process} 
+\end{itemize}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
+</page>
+<page title="Generative Process">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<path layer="alpha" matrix="1.21966 0 0 1 -80.8703 192" stroke="KITblack" fill="KITblack15">
+73.6 191.08 m
+73.6 220 l
+652.4 220 l
+657.4 220
+662.4 215
+662.4 210 c
+662.4 191.08 l
+h
+</path>
+<path matrix="1.21904 0 0 5.61511 -80.8249 -689.854" stroke="KITblack">
+662.4 191.08 m
+662.4 150.99 l
+83.6 150.99 l
+78.6 150.99
+73.6 155.99
+73.6 160.99 c
+73.6 191.08 l
+h
+</path>
+<text matrix="1.21966 0 0 1 -80.8703 192" transformations="translations" pos="79.6001 214" stroke="KITblack" type="minipage" width="576.8" height="16.8168" depth="4.606" valign="top">\textbf{Algorithm:} Generative Process</text>
+<text matrix="5.4684 0 0 -22816.23 -419.071 4223188.26" transformations="translations" pos="79.6001 185.08" stroke="black" type="minipage" width="576.8" height="91.8995" depth="79.87" valign="top">1. Choose $ \theta_i \, \sim \, \mathrm{Dir}(\alpha) $, 
+
+2. Choose $ \varphi_k \, \sim \, \mathrm{Dir}(\beta) $
+
+3. For each of the word positions $i, j$, where $ j \in \{ 1,\dots,N_i \} $, and  $ i \in \{ 1,\dots,M \} $ \\
+ \hspace*{1cm}  (a) Choose a topic $z_{i,j} \,\sim\, \mathrm{Multinomial}(\theta_i). $ \\
+ \hspace*{1cm}  (b) Choose a word $w_{i,j} \,\sim\, \mathrm{Multinomial}( \varphi_{z_{i,j}}) $
+
+
+</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3692" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 5}</text>
 </page>
 <page title="Dirichlet Distribution">
 <layer name="alpha"/>
@@ -7187,7 +7372,7 @@ Probability of 5 heads?
 \\
 
 $\Pr(5\text{ heads}) = f(5) = \Pr(X = 5) = {6\choose 5}0.5^5 (1-0.5)^{6-5} \approx 0.09375 $</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 6}</text>
 </page>
 <page title="Dirichlet Distribution">
 <layer name="alpha"/>
@@ -7219,7 +7404,7 @@ h
 $X = [x_1,x_2,x_3]$ \\
 What is the $P(X)$ given $\vec{p}$
 </text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3577" depth="0" halign="center" valign="top" size="verytiny">{\bf 7}</text>
 </page>
 <page title="Dirichlet Distribution">
 <layer name="alpha"/>
@@ -7228,12 +7413,52 @@ What is the $P(X)$ given $\vec{p}$
 <text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="29.1354" depth="16.9295" valign="top">The Dirichlet distribution $Dir(\alpha)$ is a distribution over the space of multinomial distributions.</text>
 <text matrix="1 0 0 1 0 368" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="16.8193" depth="4.5815" valign="top">location: E[….]
 peakiness: the higer sum of alpha…</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 8}</text>
+</page>
+<page title="LDA and Inference">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="71.9688" depth="59.9025" valign="top">\begin{itemize}
+\item Goal: Automatically discover topics from a collection of documents 
+\item Only documents themselves are \textit{observed}
+\item topics, per-document topic distributions, and the per-document per-word topic assignments is \textit{hidden}
+\end{itemize}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
+</page>
+<page title="Inference">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="14.4967" depth="2.2785" valign="top">How to infer latent variables?</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 10}</text>
+</page>
+<page title="Gibbs Sampling
+">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<text layer="alpha" matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -40.9997" stroke="black" type="minipage" width="736" height="57.7686" depth="45.6435" valign="top">\begin{itemize}
+\item Method to find (good) topics
+\item $z_{d,i}$ is the topic for the $i^{th}$ word in document $d$ 
+\item Draw a sample (i.e. topic assignment) for $z_{d,i}$
+\end{itemize}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
 </page>
 <page title="Conclusion -  Take home message">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.3692" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 5}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 12}</text>
+</page>
+<page>
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<layer name="beta"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<view layers="alpha pagenumbers_page beta" active="beta"/>
+<text layer="alpha" matrix="1 0 0 1 64 -160" transformations="translations" pos="0 440" stroke="black" type="minipage" width="736" height="28.0868" depth="15.9005" valign="top">{\huge Thank you for your attention !}</text>
+<text layer="beta" matrix="0.110586 0 0 -0.633061 272 165.802" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="15.0136" depth="2.793" valign="top">Questions?</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 13}</text>
 </page>
 </ipe>
