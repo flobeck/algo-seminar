@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70107" creator="Ipe 7.2.2">
-<info created="D:20090429144355" modified="D:20160616184738" title="Latent Dirichlet Allocation" author="Florian Becker"/>
+<info created="D:20090429144355" modified="D:20160620204713" title="Latent Dirichlet Allocation" author="Florian Becker"/>
 <preamble>\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
@@ -9595,7 +9595,372 @@ EJzT9tSYpQBS5gI9ntTwlSAcU7FQ5BYYFpwFOxTgBUuQxoWnhacKcKhyGM2HtT8U40g61NwF
 xTGWpO9BpXAjC05VAPFOApQKGwEOTSUuOaXFIY3HOaeMUCk6GgBMYoJoJpMUAHU0ZpQOKTtT
 ENopaKAP/9k=
 </bitmap>
-<bitmap id="11" width="559" height="281" length="11166" ColorSpace="DeviceRGB" Filter="FlateDecode" BitsPerComponent="8" encoding="base64">
+<bitmap id="11" width="988" height="342" length="19583" ColorSpace="DeviceRGB" Filter="FlateDecode" BitsPerComponent="8" encoding="base64">
+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
+iGHsTP8ZpXfL5enkd+6Wz5juJw7y/s0iTBsnV1b7iPhytBu1eG6gbGsP/t7xbFHgHHGQMkl0
+twUnF7ebyePGebnK+nZzLG6fCJDj8bGW/+jW+1Vujk5+k3wtsGvJx/DdnWLHUaPnz55l1vVo
+CnVyrVosC54n87r3V89liubdvGaV7Tg58SXnkciEsWM9XFwvXymUp5Bryb90xd3Zxdfbm+qI
+OLmC2kfE18SxY8e4uXc23Jdz23bUf+vl6ubr46Pi+JKVk2sr8V6/kCXnFvujs3XpvCAHiw/W
+hMKJMawYJNaX3pB/v0pNiBen8i+HE3Byw7SQZu0kp7Vqe46IqPU95ZfNWg5LPk5OfMm/Kx45
+kixnIe+tjthjULsiNiDbOLlS2kcbX9fOfyH/5i08myEOdefG9Ti5uSnKzlTKGpmf6mo8nF2m
+TZhgyQSb3PSeNQ5H9sYool/99+cf5vj5udg7mG9JrBKd/NM9u+W5gmagyZNxXl7jx4z597PH
+qndy4ku23Lt6uWcT5wUL5S/kWhYG9+w6XV1cgG/j5PJvH218bVy1QiktvD50uYrjSyZO/q9n
+j8Z5eoqDUcojCe0q4KTYPZb5OCFF3h4eU8aPV9CFq+5OsYPdKPNFuuKcvO3BPafR9kuC5ipo
+5bh2pJy0L0bdTk58yZa3L9pmTZvm6uh0paBIKU5++Uqhi4NjoL+fzPPTcHKcXHTR2dOnuTs5
+v2isVUoLdzbcd3NyCvT3V2V8ycTJtfOHinh08r4ndz1fFDjH2d6h/WG1xR5V38jNVlbv2hWx
+QRx2g3nKdyjOyaPC1wmJevT1bQWdQTF8EIMIVwfHXx49VLGTE18yflR9picVZOcupQi5lh3b
+dyjrjoaT26aTa+PrdFKishr5L4cTxGFfPZeJk5uDrsZaF3uHkHlBymo6cSu0TF7Tr21Pxri5
+L5wzW3GVOcV4VpzZiFUrcXIxdnO0G7V9g/LKFz+8fd18U+VycHLiS85DwpnTpnp7epXcuass
+Jy+5XTrWw3OO33Rb3uAJJ5d5+4jOOWvaNF9v79ftGmU1smgN0c6qjC85OPnhvdGiyyliaVUf
+IsPWCtHqqP/WrJ/yZfpJ0T6VhflK7GDxO6NEE5ljNbeynPzI3hjRDq33q5R4EtcsXSKs1RzX
+bTk4OfElW765dkWcmv2xccoSci379vZU6FJ33TacXNFOro2vC6dSlNjO2anHxMHXFBfi5CYf
+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
+ST+inviyopM3lpeIntZS/bUKmnFf5JaQeUEmf9vs1GNC9d8OsDm4gnhw66rJy48oxckP7Noe
+PDNABZ38Uma6s73DMOc5FeHkxJds0ZbQKbp6XelCXlB4VU3lfXBydTi5Nr4GWs2hIH559FBl
+8WVFJ/+tvcVptH1B1ucqaMa5M/wPRe80+dt+X3br3czkHaW3z18OJ4zz8vqfSeVHKU5+7fwX
+jnaj/vXskdJP4u5NG5cEzTXte1rXyYkv2fLPp9+LU3P06HGlO3lS0lEHVYQ/Tq4mJ9fGl7j8
+Kr21r1/IUll8WdHJtY/1ozdHKL0NX2oazfTg+I/OVi9XVxU89xQnOip8nWnfUylO/tfH34nj
+VHpewduu58L6Ug7GqcnJiS95T3TMWLVildKdfGXoiuCZMxFvnFxu7RMUMEMF9rUrYkPwLFXF
+l3Wd/LMDseIAlP7s+Nr5nn1PupvrzfHmW9etmReg7MyHF98/cDD12kAFOblAnEFxHhV9Eu/f
+LBKtPfyVrYpwcuJLzoi7g6erW+ndcuUK+e3SMg8X19SEeMQbJ5db+4j4Guvu/l8lL+j7veOZ
+l6ubyuLLuk5eW3JNdDbxp6LbcPOaVfNnzzLfoxnrSsvHczr5U6fR9i9bHtmsk//lcIKrg6Oi
+n6/t2bpp4ljTD5+t7uTEl2zRLjj67LNU5Tr5saM9Oww2VZYi3ji53NpHG1938nKU29QlX51X
+R/KhfJz87Yu28WPGWPEATJK44mLvIG6LZnr//zx/4u7kfGDXdqXmPLxomzZx4oYVoSZ/ZwU5
++fPae+JQs1OPKfQk/vvZYzcnp0/37Db5O1vdyYkvOeM3aVJw0DzlOnnQnMCAKVOwbpxcnu3j
+P2nS2hAF79u4avGigKlqiy/rOrngUPROcU80utGeIvjis2QRLz99V22+j4jeHCGaSMi/ckey
+JRcv2LKTC0LmBQl3+qOzVYkn8czRnptCc9Vd9Tk58SVn0o8kim+Xk/uVEoX8/IVccfAidrBu
+nFye7aONL021Ip8SPqm6Kw5eNA5Obg6zyjyerMTWe/PzD1PGj19u5i2t60tviCYy+fI6C/C/
+rufzAgImjh1rjqQ1ZTl5UXamONrCs2cUdxLFvWD8mDGLAs2y5a4cnJz4ki1/ffyd02j7ZUuX
+KdHJQ5Ysdba3N9M6I5wcJzdVfCl0efjWdWuc7R1UUM5Rbk4uWDB7ljiM1+0axbXe5czTIliu
+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
+</bitmap>
+<bitmap id="13" width="559" height="281" length="11166" ColorSpace="DeviceRGB" Filter="FlateDecode" BitsPerComponent="8" encoding="base64">
 eNrt3XlcVPX+x3G6dlvEBRUGRAQRBFEcBNFEuiouqRhhrhkoruSWkvlLIFOZ1ERNJRcQTdJC
 b5ImuVDmkI2aCBeXkcSUbMzGBXVEUAcdlt+HOTAibiwzc75nfD//6GFGw8x3zpzX+Z5z5pzS
 UgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -15297,222 +15662,8 @@ h
 <text matrix="1 0 0 1 -213 -77" pos="213 427" stroke="black" type="label" width="359.498" height="21.186" depth="0.286" valign="baseline" size="Large">\bf Latent Dirichlet Allocation</text>
 <text layer="pagenumbers_format" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="31.6204" height="7.5578" depth="2.277" halign="center" valign="top" size="verytiny">{\bf [page]}</text>
 <image layer="BACKGROUND" matrix="0.75297 0 0 0.759728 275.971 -71.7002" rect="137 72.5 599 367.5" bitmap="5"/>
-<image matrix="0.710068 0 0 0.759401 -67.9476 -73.8781" rect="88.5 79.5 647.5 360.5" bitmap="11"/>
+<image matrix="0.710068 0 0 0.759401 -67.9476 -73.8781" rect="88.5 79.5 647.5 360.5" bitmap="13"/>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 0}</text>
-</page>
-<page title="Outline" section="" marked="no">
-<layer name="alpha"/>
-<layer name="beta"/>
-<layer name="gamma"/>
-<layer name="delta"/>
-<layer name="pagenumbers_page" edit="no"/>
-<layer name="epsilon"/>
-<layer name="outline"/>
-<layer name="eta"/>
-<layer name="zeta"/>
-<layer name="theta"/>
-<layer name="iota"/>
-<layer name="kappa"/>
-<layer name="lambda"/>
-<layer name="mu"/>
-<layer name="nu"/>
-<view layers="pagenumbers_page outline" active="outline"/>
-<view layers="pagenumbers_page outline iota" active="iota"/>
-<view layers="pagenumbers_page eta" active="eta"/>
-<view layers="pagenumbers_page eta theta" active="theta"/>
-<view layers="pagenumbers_page eta theta kappa" active="kappa"/>
-<view layers="pagenumbers_page eta theta kappa lambda" active="lambda"/>
-<view layers="pagenumbers_page eta theta kappa lambda nu" active="nu"/>
-<view layers="pagenumbers_page eta theta kappa lambda mu" active="mu"/>
-<text layer="delta" matrix="1 0 0 1 -223.772 -60.4874" transformations="translations" pos="224 112" stroke="black" type="label" width="415.507" height="13.123" depth="4.026" valign="baseline" size="small">page numbers created with the Pagenumbers Ipelet</text>
-<text matrix="1 0 0 1 -223.772 -80.643" transformations="translations" pos="224 112" stroke="black" type="label" width="357.644" height="10.81" depth="3.26" valign="baseline" size="footnote">https://sourceforge.net/p/ipe7/wiki/Pagenumbers\_Ipelet/</text>
-<path stroke="black" pen="heavier" arrow="normal/normal">
--1.78204 49.5567 m
--18.5764 30.261
--12.8592 -27.6261 s
-</path>
-<image layer="beta" matrix="0.997356 0 0 0.934966 7.1057 -24.7119" rect="0 26.337 736 413.663" bitmap="8"/>
-<text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="31.3527" depth="19.159" valign="top">Blei, David M., Andrew Y. Ng, and Michael I. Jordan. &quot;Latent dirichlet allocation.&quot; the Journal of machine Learning research 3 (2003): 993-1022.</text>
-<text matrix="1 0 0 1 0 336" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="18.9434" depth="6.7375" valign="top" size="large">$&gt; 130.000.000 $ books  (google books estimate)</text>
-<text layer="gamma" matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.5677" depth="2.352" valign="top">Generative Model</text>
-<text layer="alpha" transformations="translations" pos="128 192" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline" size="large"></text>
-<text layer="epsilon" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="38.0754" depth="25.8965" valign="top">\begin{itemize}
-\item I need a cup of coffee every morning.
-\item My mom makes the best cherry pie and coffee.
-\end{itemize}</text>
-<text matrix="1 0 0 1 0 336" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="38.0754" depth="25.8965" valign="top">\begin{itemize}
-\item \textit{War and Piece} by Tolstoy is my favourite book.
-\item I’ve never read a book by Kafka.
-\end{itemize}
-</text>
-<text matrix="1 0 0 1 0 224" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="19.0561" depth="6.8355" valign="top">\begin{itemize}
-\item I always need coffee while reading, otherwise I’ll fall asleep.
-\end{itemize}
-</text>
-<path layer="outline" matrix="1 0 0 1 0 16" stroke="black" fill="KITblack15">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<text matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Introduction</text>
-<path layer="eta" matrix="1 0 0 1 0 -80.2637" stroke="black" fill="KITblack15">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<path matrix="1 0 0 1 0 -80.2637" stroke="black" fill="KITblack15">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<text matrix="1 0 0 1 0 367.736" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Latent Dirichlet Allocation: What does it do?</text>
-<path matrix="1 0 0 1 0 16" stroke="black" fill="KITblack15">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<text matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Introduction</text>
-<text layer="iota" matrix="1 0 0 1 0 425.074" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="18.9483" depth="6.762" valign="top">\begin{itemize}
-\item What is Topic Recognition?
-\end{itemize}</text>
-<text layer="eta" matrix="1 0 0 1 0 425.074" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="18.9483" depth="6.762" valign="top">\begin{itemize}
-\item What is Topic Recognition?
-\end{itemize}</text>
-<text layer="theta" matrix="1 0 0 1 0 328.705" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="54.8776" depth="42.7525" valign="top">\begin{itemize}
-\item Assumptions
-\item Generative Process
-\item Dirichlet Distribution
-\end{itemize}</text>
-<path layer="kappa" matrix="1 0 0 1 0 -236.249" stroke="black" fill="KITpalegreen70">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<text matrix="1 0 0 1 0 211.751" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Demo</text>
-<path layer="lambda" matrix="1 0 0 1 0 -287.608" stroke="black" fill="KITblack15">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<text matrix="1 0 0 1 0 160.391" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Latent Dirichlet Allocation: How does it do it?</text>
-<path layer="mu" matrix="1 0 0 1 0 -367.608" stroke="black" fill="KITblack15">
-744 404.812 m
-744 392.218 l
-744 387.218
-739 382.218
-734 382.218 c
-2 382.218 l
--3 382.218
--8 387.218
--8 392.218 c
--8 404.812 l
--8 409.812
--3 414.812
-2 414.812 c
-734 414.812 l
-739 414.812
-744 409.812
-744 404.812 c
-h
-</path>
-<text matrix="1 0 0 1 0 80.391" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.5677" depth="2.352" valign="top">Conclusion</text>
-<text layer="nu" matrix="1 0 0 1 0 123.52" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="19.1272" depth="6.909" valign="top">\begin{itemize}
-\item Gibbs Sampling
-\end{itemize}</text>
-<text layer="mu" matrix="1 0 0 1 0 123.52" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="19.1272" depth="6.909" valign="top">\begin{itemize}
-\item Gibbs Sampling
-\end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
 </page>
 <page title="More and more text">
 <layer name="alpha"/>
@@ -15521,16 +15672,17 @@ h
 <view layers="alpha pagenumbers_page" active="alpha"/>
 <view layers="alpha pagenumbers_page beta" active="beta"/>
 <image layer="alpha" matrix="0.695507 0 0 0.78717 -88.2595 99.7989" rect="126 15.5 610 424.5" bitmap="6"/>
-<text layer="beta" matrix="1 0 0 1 352 464" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="464" height="55.0441" depth="42.8995" valign="top">Mass production of text:
+<text layer="beta" matrix="1 0 0 1 352 464" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="464" height="74.0415" depth="61.985" valign="top">Mass production of text:
 
 \begin{itemize}
 \item $&gt;$ 4000 peer-reviewed papers / day
 \item nearly 3 million blog posts / day
+\item 500 million tweets / day
 
 \end{itemize}</text>
 <text matrix="1 0 0 1 0 144" transformations="translations" pos="0 -41.1883" stroke="KITblack50" type="minipage" width="464" height="13.0396" depth="0" valign="top" size="tiny">http://www.passion-estampes.com/npe/newsletter-francois-schuiten.html</text>
 <text layer="alpha" matrix="1 0 0 1 0 144" transformations="translations" pos="0 -41.1883" stroke="KITblack50" type="minipage" width="464" height="13.0396" depth="0" valign="top" size="tiny">http://www.passion-estampes.com/npe/newsletter-francois-schuiten.html</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 1}</text>
 </page>
 <page title="(Probabilitic) Topic Models - Intro">
 <layer name="alpha"/>
@@ -15623,14 +15775,14 @@ h
 h
 </path>
 <text matrix="1.47661 0 0 -62563.53 219.119 11579407.03" transformations="translations" pos="79.6001 185.08" stroke="black" type="minipage" width="576.8" height="87.3621" depth="75.313" valign="top">0.15*algorithm \\
-0.1* complexity \\
+0.1*complexity \\
 0.05*program \\
-0.05*np-complete \\
+0.05*turing\\
 … \\ 
 …
 
 </text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 2}</text>
 </page>
 <page title="Topic Simplex">
 <layer name="alpha"/>
@@ -15688,7 +15840,7 @@ h
 h
 </path>
 <text matrix="0.00937908 -0.00006124 0.00652952 0.999979 461.457 175.738" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="272" height="16.7115" depth="4.508" valign="top">Algorithms</text>
-<path layer="zeta" matrix="1.63622 0.0218327 -0.0200408 1.50194 -130.052 133.443" stroke="black" fill="KITbrown15">
+<path layer="zeta" matrix="1.63622 0.0218327 -0.0200408 1.50194 -146.052 133.821" stroke="black" fill="KITbrown15">
 384 96 m
 430.328 120.244 l
 430.6 124.062
@@ -15710,8 +15862,8 @@ h
 429.642 110.628 c
 h
 </path>
-<text matrix="0.00937928 0 0 1 575.554 368" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="272" height="14.5677" depth="2.352" valign="top">Generative Grammar</text>
-<use name="mark/disk(sx)" pos="496 288" size="normal" stroke="black"/>
+<text matrix="0.00937928 0 0 1 553.954 365.096" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="272" height="14.5677" depth="2.352" valign="top">Generative Grammar</text>
+<use matrix="1 0 0 1 -16 0" name="mark/disk(sx)" pos="496 288" size="normal" stroke="black"/>
 <path layer="eta" matrix="-0.822561 -0.0105131 0.00801919 -1.50202 631.582 371.357" stroke="black" fill="KITbrown15">
 384 96 m
 430.328 120.244 l
@@ -15736,11 +15888,179 @@ h
 </path>
 <use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="304 240" size="normal" stroke="black"/>
 <text matrix="0.00937928 0 0 1 182.567 246.522" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="272" height="16.7115" depth="4.508" valign="top">Logic</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 3}</text>
+</page>
+<page title="Outline" section="" marked="no">
+<layer name="alpha"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<layer name="delta"/>
+<layer name="pagenumbers_page" edit="no"/>
+<layer name="epsilon"/>
+<layer name="outline"/>
+<layer name="eta"/>
+<layer name="zeta"/>
+<layer name="theta"/>
+<layer name="iota"/>
+<layer name="kappa"/>
+<layer name="lambda"/>
+<layer name="mu"/>
+<layer name="nu"/>
+<view layers="pagenumbers_page eta" active="eta"/>
+<view layers="pagenumbers_page eta theta" active="theta"/>
+<view layers="pagenumbers_page eta theta kappa" active="kappa"/>
+<view layers="pagenumbers_page eta theta kappa lambda" active="lambda"/>
+<view layers="pagenumbers_page eta theta kappa lambda nu" active="nu"/>
+<view layers="pagenumbers_page eta theta kappa lambda mu" active="mu"/>
+<text layer="delta" matrix="1 0 0 1 -223.772 -60.4874" transformations="translations" pos="224 112" stroke="black" type="label" width="415.507" height="13.123" depth="4.026" valign="baseline" size="small">page numbers created with the Pagenumbers Ipelet</text>
+<text matrix="1 0 0 1 -223.772 -80.643" transformations="translations" pos="224 112" stroke="black" type="label" width="357.644" height="10.81" depth="3.26" valign="baseline" size="footnote">https://sourceforge.net/p/ipe7/wiki/Pagenumbers\_Ipelet/</text>
+<path stroke="black" pen="heavier" arrow="normal/normal">
+-1.78204 49.5567 m
+-18.5764 30.261
+-12.8592 -27.6261 s
+</path>
+<image layer="beta" matrix="0.997356 0 0 0.934966 7.1057 -24.7119" rect="0 26.337 736 413.663" bitmap="8"/>
+<text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="31.3527" depth="19.159" valign="top">Blei, David M., Andrew Y. Ng, and Michael I. Jordan. &quot;Latent dirichlet allocation.&quot; the Journal of machine Learning research 3 (2003): 993-1022.</text>
+<text matrix="1 0 0 1 0 336" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="18.9434" depth="6.7375" valign="top" size="large">$&gt; 130.000.000 $ books  (google books estimate)</text>
+<text layer="gamma" matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.5677" depth="2.352" valign="top">Generative Model</text>
+<text layer="alpha" transformations="translations" pos="128 192" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline" size="large"></text>
+<text layer="epsilon" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="38.0754" depth="25.8965" valign="top">\begin{itemize}
+\item I need a cup of coffee every morning.
+\item My mom makes the best cherry pie and coffee.
+\end{itemize}</text>
+<text matrix="1 0 0 1 0 336" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="38.0754" depth="25.8965" valign="top">\begin{itemize}
+\item \textit{War and Piece} by Tolstoy is my favourite book.
+\item I’ve never read a book by Kafka.
+\end{itemize}
+</text>
+<text matrix="1 0 0 1 0 224" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="19.0561" depth="6.8355" valign="top">\begin{itemize}
+\item I always need coffee while reading, otherwise I’ll fall asleep.
+\end{itemize}
+</text>
+<path layer="eta" matrix="1 0 0 1 0 15.7363" stroke="black" fill="KITblack15">
+744 404.812 m
+744 392.218 l
+744 387.218
+739 382.218
+734 382.218 c
+2 382.218 l
+-3 382.218
+-8 387.218
+-8 392.218 c
+-8 404.812 l
+-8 409.812
+-3 414.812
+2 414.812 c
+734 414.812 l
+739 414.812
+744 409.812
+744 404.812 c
+h
+</path>
+<path matrix="1 0 0 1 0 15.7363" stroke="black" fill="KITblack15">
+744 404.812 m
+744 392.218 l
+744 387.218
+739 382.218
+734 382.218 c
+2 382.218 l
+-3 382.218
+-8 387.218
+-8 392.218 c
+-8 404.812 l
+-8 409.812
+-3 414.812
+2 414.812 c
+734 414.812 l
+739 414.812
+744 409.812
+744 404.812 c
+h
+</path>
+<text matrix="1 0 0 1 0 463.736" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Latent Dirichlet Allocation: What does it do?</text>
+<text layer="theta" matrix="1 0 0 1 0 424.705" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="54.8776" depth="42.7525" valign="top">\begin{itemize}
+\item Assumptions
+\item Generative Process
+\item Dirichlet Distribution
+\end{itemize}</text>
+<path layer="kappa" matrix="1 0 0 1 0 -156.249" stroke="black" fill="KITpalegreen70">
+744 404.812 m
+744 392.218 l
+744 387.218
+739 382.218
+734 382.218 c
+2 382.218 l
+-3 382.218
+-8 387.218
+-8 392.218 c
+-8 404.812 l
+-8 409.812
+-3 414.812
+2 414.812 c
+734 414.812 l
+739 414.812
+744 409.812
+744 404.812 c
+h
+</path>
+<text matrix="1 0 0 1 0 291.751" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Demo</text>
+<path layer="lambda" matrix="1 0 0 1 0 -207.608" stroke="black" fill="KITblack15">
+744 404.812 m
+744 392.218 l
+744 387.218
+739 382.218
+734 382.218 c
+2 382.218 l
+-3 382.218
+-8 387.218
+-8 392.218 c
+-8 404.812 l
+-8 409.812
+-3 414.812
+2 414.812 c
+734 414.812 l
+739 414.812
+744 409.812
+744 404.812 c
+h
+</path>
+<text matrix="1 0 0 1 0 240.391" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.4134" depth="2.1805" valign="top">Latent Dirichlet Allocation: How does it do it?</text>
+<path layer="mu" matrix="1 0 0 1 0 -328.019" stroke="black" fill="KITblack15">
+744 404.812 m
+744 392.218 l
+744 387.218
+739 382.218
+734 382.218 c
+2 382.218 l
+-3 382.218
+-8 387.218
+-8 392.218 c
+-8 404.812 l
+-8 409.812
+-3 414.812
+2 414.812 c
+734 414.812 l
+739 414.812
+744 409.812
+744 404.812 c
+h
+</path>
+<text matrix="1 0 0 1 0 119.98" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="14.5677" depth="2.352" valign="top">Conclusion</text>
+<text layer="nu" matrix="1 0 0 1 0 203.52" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="38.1686" depth="25.9945" valign="top">\begin{itemize}
+\item Inference
+\item Gibbs Sampling
+\end{itemize}</text>
+<text layer="mu" matrix="1 0 0 1 0 203.52" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="38.1686" depth="25.9945" valign="top">\begin{itemize}
+\item Inference
+\item Gibbs Sampling
+\end{itemize}</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 4}</text>
 </page>
 <page>
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
+<layer name="beta"/>
+<layer name="gamma"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
 <text layer="alpha" matrix="1 0 0 1 0 320" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="20.9396" depth="9.966" valign="center" size="huge">\begin{center}
 Latent Dirichlet Allocation
@@ -15751,9 +16071,10 @@ Latent Dirichlet Allocation
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="alpha" pin="h" transformations="translations" pos="0 440" stroke="black" type="minipage" width="736" height="38.0632" depth="25.921" valign="top">\begin{itemize}
+<text layer="alpha" pin="h" transformations="translations" pos="0 440" stroke="black" type="minipage" width="736" height="54.8776" depth="42.7525" valign="top">\begin{itemize}
 \item Unsupervised Learning Model
-\item Finding Clusters of similar texts
+\item Finding clusters of similar texts
+\item Generative Model
 \end{itemize}</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 6}</text>
 </page>
@@ -15820,34 +16141,14 @@ h
 
 2. Choose $ \varphi_k \, \sim \, \mathrm{Dir}(\beta) $
 
-3. For each of the word positions $i, j$, where $ j \in \{ 1,\dots,N_i \} $, and  $ i \in \{ 1,\dots,M \} $ \\
+3. For each of the word positions $i, j$, where $ j \in \{ 1,\dots,N_i \} $, and  $ i \in \{ 1,\dots,D \} $ \\
  \hspace*{1cm}  (a) Choose a topic $z_{i,j} \,\sim\, \mathrm{Multinomial}(\theta_i). $ \\
  \hspace*{1cm}  (b) Choose a word $w_{i,j} \,\sim\, \mathrm{Multinomial}( \varphi_{z_{i,j}}) $
-
-
 </text>
 <text matrix="7.49738 0 0 -22816.23 -580.578 4222948.26" transformations="translations" pos="79.6001 185.08" stroke="black" type="minipage" width="576.8" height="29.1354" depth="16.9295" valign="top">$N_i$ - Number of words in document $i$ \\
-$M$ - Number of documents
+$D$ - Number of documents
  </text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 8}</text>
-</page>
-<page title="Plate Notation">
-<layer name="alpha"/>
-<layer name="pagenumbers_page" edit="no"/>
-<view layers="alpha pagenumbers_page" active="alpha"/>
-<image layer="alpha" matrix="0.522727 0 0 0.506275 144 215.9" rect="0 2.71254 736 437.287" bitmap="16"/>
-<text matrix="1 0 0 1 0 224" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="38.0632" depth="25.921" valign="top">\begin{itemize}
-\item Vertex $\equiv$ random variable
-\item Edge $\equiv$ dependence
-\end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
-</page>
-<page title="Plate Notation: LDA">
-<layer name="alpha"/>
-<layer name="pagenumbers_page" edit="no"/>
-<view layers="alpha pagenumbers_page" active="alpha"/>
-<image layer="alpha" matrix="1 0 0 1 -16 48" rect="88.5 79.5 647.5 360.5" bitmap="11"/>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 10}</text>
 </page>
 <page title="Dirichlet Distribution">
 <layer name="alpha"/>
@@ -15887,7 +16188,7 @@ Probability of 5 heads?
 \\
 
 $\Pr(5\text{ heads}) = f(5) = \Pr(X = 5) = {6\choose 5}0.5^5 (1-0.5)^{6-5} \approx 0.09375 $</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="5.8604" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 9}</text>
 </page>
 <page title="Dirichlet Distribution">
 <layer name="alpha"/>
@@ -15946,7 +16247,7 @@ h
 <text layer="eta" matrix="0.914894 0 0 1 240 240" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="256" height="31.0856" depth="18.8895" valign="top">$\vec{p} = [\frac{1}{2} - \frac{\epsilon}{2} , \frac{1}{2} - \frac{\epsilon}{2}, \epsilon]$ \\
 </text>
 <text layer="zeta" matrix="1 0 0 1 495.437 178.436" transformations="translations" pos="0 -41.1883" stroke="KITblack50" type="minipage" width="352" height="13.1292" depth="0" valign="top" size="tiny">http://rired.ru/wp-content/uploads/2013/03/851428coin.jpg</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 12}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 10}</text>
 </page>
 <page title="Dirichlet Distribution">
 <layer name="alpha"/>
@@ -15985,6 +16286,30 @@ h
 <text layer="zeta" matrix="1 0 0 1 0 359.922" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="16.4567" depth="4.214" valign="top">$\alpha = [10,10,10]$</text>
 <image layer="iota" matrix="0.77615 0 0 0.736526 98.8118 14.1594" rect="79.9994 3.99957 656.001 436" bitmap="4"/>
 <text matrix="1 0 0 1 0 358.915" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="16.4567" depth="4.214" valign="top">$\alpha = [0.9,0.9,0.9]$</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 11}</text>
+</page>
+<page title="Plate Notation">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<image layer="alpha" matrix="0.522727 0 0 0.506275 144 215.9" rect="0 2.71254 736 437.287" bitmap="16"/>
+<text matrix="1 0 0 1 0 224" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="38.0632" depth="25.921" valign="top">\begin{itemize}
+\item Vertex $\equiv$ random variable
+\item Edge $\equiv$ dependence
+\end{itemize}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 12}</text>
+</page>
+<page title="Plate Notation: LDA">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<layer name="beta"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<view layers="alpha pagenumbers_page beta" active="beta"/>
+<text layer="beta" matrix="1 0 0 1 0 176.417" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="70.5625" depth="58.457" valign="top" size="large">$\alpha $ - Dirichlet parameterization \\
+$ \beta_k $ - topics (dist. over words) \\
+$\theta_d $ - topic proportions for $d^{th}$ document \\
+$z_{d,n}$ - topic assignment for $n^{th}$ word in $d^{th}$ document</text>
+<image matrix="1 0 0 1 0 48" rect="0 92.6154 736 347.385" bitmap="11"/>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 13}</text>
 </page>
 <page title="LDA: Demo">
@@ -16017,15 +16342,68 @@ h
 \item Only documents themselves are \textit{observed}
 \item topics, per-document topic distributions, and the per-document per-word topic assignments is \textit{hidden}
 \end{itemize}</text>
-<image layer="beta" matrix="1 0 0 1 -16 -96" rect="88.5 79.5 647.5 360.5" bitmap="11"/>
+<image layer="beta" matrix="1 0 0 1 0 -96" rect="0 92.6154 736 347.385" bitmap="11"/>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 15}</text>
 </page>
 <page title="Inference">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<layer name="delta"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
+<view layers="alpha pagenumbers_page beta" active="beta"/>
+<view layers="alpha pagenumbers_page beta delta" active="delta"/>
 <text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="14.4967" depth="2.2785" valign="top">How to infer latent variables?</text>
+<text layer="beta" matrix="1 0 0 1 0 366.064" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="26.1832" depth="13.9895" valign="top" size="large">$ p(\beta_{1:K}, \theta_{1:D}, z_{1:D} | w_{1:D} ) = \frac{p(\beta_{1:K}, \theta_{1:D}, z_{1:D},w_{1:D} )}{p(w_{1:D})} $</text>
+<path layer="delta" matrix="1.65766 0 0 0.362067 -275.404 188.162" stroke="black" fill="yellow">
+509.253 369.355 m
+545.707 369.306 l
+560.179 369.287
+574.65 367.924
+574.648 366.579 c
+574.386 169.806 l
+574.384 168.461
+559.91 167.137
+545.438 167.156 c
+508.985 167.204 l
+494.512 167.224
+480.041 168.587
+480.043 169.931 c
+480.147 248.103 l
+413.263 293.007 l
+480.174 268.318 l
+480.305 366.705 l
+480.307 368.049
+494.781 369.374
+509.253 369.355 c
+h
+</path>
+<text matrix="1 0 0 1 538.19 351.714" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="145.52" height="26.0348" depth="15.07" valign="top" size="small">marginal \\
+probability</text>
+<text layer="beta" matrix="1 0 0 1 0 297.207" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="69.7589" depth="57.6975" valign="top" size="large">$ \beta_k $ - topics (dist. over words) \\
+$\theta_d $ - topic proportions for $d^{th}$ document \\
+$z_{d,n}$ - topic assignment for $n^{th}$ word in $d^{th}$ document \\
+$w_d$ - observed words</text>
 <text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 16}</text>
+</page>
+<page title="Inference">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<layer name="delta"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<view layers="alpha pagenumbers_page beta" active="beta"/>
+<view layers="alpha pagenumbers_page beta gamma" active="gamma"/>
+<view layers="alpha pagenumbers_page beta gamma delta" active="delta"/>
+<text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="16.7115" depth="4.508" valign="top">Problem: Marginal probability is intractable to compute
+</text>
+<text layer="beta" matrix="1 0 0 1 0 373.091" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="43.8232" depth="31.6785" valign="top">Could only be computed theoretically: \\
+Sum the joint distribution over every possible instance of the hidden topic structure.</text>
+<text layer="gamma" matrix="1 0 0 1 0 244.819" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="31.3625" depth="19.159" valign="top">In other words: Sum over all possible ways of assigning each observed word of the collection to one of the topics. </text>
+<text layer="delta" matrix="1 0 0 1 0 160.526" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="16.5694" depth="4.3365" valign="top">$\Rightarrow$ Approximation !</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 17}</text>
 </page>
 <page title="Gibbs Sampling
 ">
@@ -16033,12 +16411,12 @@ h
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
 <text layer="alpha" matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -40.9997" stroke="black" type="minipage" width="736" height="76.3959" depth="64.3125" valign="top">\begin{itemize}
-\item used for Bayesion inference
+\item used for Bayesian inference
 \item randomized algorithm
 \item Markov Chain Monte Carlo Algorithm
 \item Method to find (good) topics
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 17}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 18}</text>
 </page>
 <page title="Gibbs Sampling - Example">
 <layer name="alpha"/>
@@ -16051,7 +16429,7 @@ h
 <view layers="alpha pagenumbers_page gamma" active="gamma"/>
 <view layers="alpha pagenumbers_page gamma delta" active="delta"/>
 <text layer="alpha" matrix="1 0 0 1 0 464" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="31.4335" depth="19.257" valign="top">Text mining algorithms can be used to find structure in text corpora like Plato’s $dialogues$</text>
-<text layer="gamma" matrix="1 0 0 1 0 352" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="16.7115" depth="4.508" valign="top">1. Randomly assign words to topics</text>
+<text layer="gamma" matrix="1 0 0 1 0 352" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="16.7115" depth="4.508" valign="top">1. Randomly assign words to topics </text>
 <text layer="beta" matrix="1 0 0 1 0 320" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="36.8382" depth="24.6715" valign="top">\begin{tabular}{ | c | c | c | c | c | c | c |}
 \hline
 - &amp; - &amp; - &amp; - &amp; - &amp; - &amp; -    \\  
@@ -16064,12 +16442,12 @@ text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle
 \hline
 1 &amp; 3 &amp; 2 &amp; 1 &amp; 2 &amp; 1 &amp; 2 \\
 \hline 
-text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle &amp; dialogues \\
+text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Plato &amp; dialogues \\
 \hline
 \end{tabular}
 </text>
 <text layer="delta" matrix="1 0 0 1 0 208" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="16.6502" depth="4.4345" valign="top">2. Do this for all documents in corpus</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 18}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 19}</text>
 </page>
 <page title="Gibbs Sampling - Example">
 <layer name="alpha"/>
@@ -16085,19 +16463,20 @@ text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle
 \hline
 1 &amp; 3 &amp; 2 &amp; 1 &amp; 2 &amp; 1 &amp; 2 \\
 \hline
-text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle &amp; dialogues\\
+text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Plato &amp; dialogues\\
 \hline
 
 \end{tabular}
 </text>
-<text layer="beta" matrix="1 0 0 1 0 352" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="123.139" depth="111.181" valign="top">\begin{tabular}{ l | c l c | c  }
-&amp; 1 &amp; 2 &amp; 3 \\
+<text layer="beta" matrix="1 0 0 1 0 352" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="123.627" depth="111.671" valign="top">\begin{tabular}{ l | c l c | c  }
+&amp; \textbf{1} &amp; \textbf{2} &amp; \textbf{3} \\
+\hline 
 text &amp; 65 &amp; 54 &amp; 59 \\
 mining &amp;  21 &amp; 4 &amp; 12 \\
 algorithms &amp; 100 &amp; 74 &amp; 122 \\
 structure &amp; 20 &amp; 12 &amp; 14 \\
 corpora &amp;  5 &amp; 2 &amp; 12 \\
-Aristotle &amp;  35 &amp; 33 &amp; 42 \\
+Plato &amp;  35 &amp; 33 &amp; 42 \\
 dialogues &amp;  24 &amp; 27 &amp; 31 \\
 \end{tabular}
 </text>
@@ -16129,7 +16508,7 @@ h
 \hline
 1 &amp; 3 &amp; ??? &amp; 1 &amp; 2 &amp; 1 &amp; 2 \\
 \hline
-text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle &amp; dialogues \\
+text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Plato &amp; dialogues \\
 \hline
 \end{tabular}
 </text>
@@ -16157,7 +16536,7 @@ text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle
 h
 </path>
 <text matrix="0.984452 0 0 1 290.705 480" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="16.7115" depth="4.508" valign="top">sample word {\it algorithm }</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 19}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 20}</text>
 </page>
 <page title="Gibbs Sampling - Example">
 <layer name="alpha"/>
@@ -16249,13 +16628,13 @@ h
 <text matrix="1 0 0 1 336 288" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="96" height="16.5694" depth="4.3365" valign="top">Topic 2</text>
 <text layer="gamma" matrix="1 0 0 1 0 96" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="320" height="16.5694" depth="4.3365" valign="top">4. Word distribution over topics</text>
 <text layer="delta" matrix="1 0 0 1 320 240" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="304" height="123.139" depth="111.181" valign="top">\begin{tabular}{ l | c l c | c  }
-&amp; 1 &amp; 2 &amp; 3 \\
+&amp; \textbf{1} &amp; \textbf{2} &amp; \textbf{3} \\
 text &amp; 65 &amp; 54 &amp; 59 \\
 mining &amp;  21 &amp; 4 &amp; 12 \\
 algorithms &amp; 100 &amp; 74 &amp; 122 \\
 structure &amp; 20 &amp; 12 &amp; 14 \\
 corpora &amp;  5 &amp; 2 &amp; 12 \\
-Aristotle &amp;  35 &amp; 33 &amp; 42 \\
+Plato &amp;  35 &amp; 33 &amp; 42 \\
 dialogues &amp;  24 &amp; 27 &amp; 31 \\
 \end{tabular}
 </text>
@@ -16420,7 +16799,7 @@ h
 \hline
 1 &amp; 3 &amp; ??? &amp; 1 &amp; 2 &amp; 1 &amp; 2 \\
 \hline
-text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle &amp; dialogues \\
+text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Plato &amp; dialogues \\
 \hline
 \end{tabular}
 </text>
@@ -16456,17 +16835,32 @@ text &amp; mining &amp; algorithms &amp; structure &amp; corpora &amp; Aristotle
 h
 </path>
 <text matrix="0.984452 0 0 1 290.705 480" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="16.7115" depth="4.508" valign="top">reassign to Topic 1</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 20}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 21}</text>
 </page>
 <page title="Conclusion -  Take home message">
 <layer name="alpha"/>
 <layer name="pagenumbers_page" edit="no"/>
 <view layers="alpha pagenumbers_page" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 0 432" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="31.3723" depth="19.1835" valign="top">
+<text layer="alpha" matrix="1 0 0 1 0 432" pin="h" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="52.7828" depth="40.67" valign="top">
 \begin{itemize}
 \item Topic models find the hidden topical patterns that pervade a unstructured collection of text
+\item Gibbs sampling can be used to iteratively allocate words to topics
 \end{itemize}</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 21}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 22}</text>
+</page>
+<page title="Resources">
+<layer name="alpha"/>
+<layer name="pagenumbers_page" edit="no"/>
+<view layers="alpha pagenumbers_page" active="alpha"/>
+<text layer="alpha" matrix="1 0 0 1 0 448" pin="h" transformations="translations" pos="0 -41.1883" stroke="black" type="minipage" width="736" height="85.3424" depth="74.536" valign="top" size="small">
+\begin{itemize}
+\item http://www.cs.columbia.edu/~blei/
+\item Blei, David M., Andrew Y. Ng, and Michael I. Jordan. &quot;Latent dirichlet allocation.&quot; the Journal of machine Learning research 3 (2003): 993-1022.
+APA	
+\item Porteous, Ian, et al. &quot;Fast collapsed gibbs sampling for latent dirichlet allocation.&quot; Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2008.
+
+\end{itemize}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5578" depth="0.184" halign="center" valign="top" size="verytiny">{\bf 23}</text>
 </page>
 <page>
 <layer name="alpha"/>
@@ -16476,6 +16870,6 @@ h
 <view layers="alpha pagenumbers_page beta" active="beta"/>
 <text layer="alpha" matrix="1 0 0 1 64 -160" transformations="translations" pos="0 440" stroke="black" type="minipage" width="736" height="28.0868" depth="15.9005" valign="top">{\huge Thank you for your attention !}</text>
 <text layer="beta" matrix="0.110586 0 0 -0.633061 272 165.802" transformations="translations" pos="0 -41.3838" stroke="black" type="minipage" width="736" height="15.0136" depth="2.793" valign="top">Questions?</text>
-<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 22}</text>
+<text layer="pagenumbers_page" matrix="1 0 0 1 0.5 5.358" transformations="translations" pos="-13 -39" stroke="black" type="label" width="11.7208" height="7.5463" depth="0" halign="center" valign="top" size="verytiny">{\bf 24}</text>
 </page>
 </ipe>
