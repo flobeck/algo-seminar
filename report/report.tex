@@ -1,4 +1,4 @@
-\documentclass[a4paper,ngerman]{atseminar}
+\documentclass[a4paper,ngerman, english]{atseminar}
 
 \usepackage{microtype}
 \usepackage{graphicx}
@@ -11,6 +11,17 @@
 \usepackage{tabularx}
 \usepackage[final]{pdfpages}
 \usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{%
+  \parbox{\textwidth}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}\vskip-4pt}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
+
 
 \setboolean{@twoside}{false}
 
@@ -31,8 +42,8 @@
 
 \newcommand*{\vinput}[1]{\vcenter{\hbox{\input{#1}}}}
 \newcommand*{\vpointer}{\vcenter{\hbox{\scalebox{2}{\Huge\pointer}}}}
-
-
+\DeclareMathOperator{\Dir}{Dir}
+\DeclareMathOperator{\parent}{parent}
 %Organizer macros:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -56,9 +67,10 @@
 \begin{abstract}
 Due to the vast amounts of texts which are produced and digitized on a daily basis, it 
 becomes more and more difficult to find what we are looking for. Topic models can 
-be used as a tool to discover \textit{topics} in large collection of texts. Each text 
+be used as a tool to discover \textit{topics} in large collections of texts. Each text 
 is considered to be a distribution over topics and topics are, in turn, distributions over
-words. \\
+words. Topic model algorithms receive unlabeled texts as input and produce the topic 
+distribution as output. 
 Latent Dirichlet Allocation is a generative probabilistic topic model. The basic idea is
 that documents are mixtures of latent topics distributed according to a Dirichlet prior.
 
@@ -68,43 +80,43 @@ that documents are mixtures of latent topics distributed according to a Dirichle
 \subsection{Introduction}
 %"We are drowning in information but starved for knowledge." - John Naisbitt \\
 When seeking digitized and hyper-linked information, we use searching tools that
-weight each result according to some centrality measure. Such Techniques are 
-often sufficient, provided that we only want to find some result and don't care
-about the underlying topic structure which might give us more insight in a document or
+weigh each result according to some centrality measure. Such techniques are 
+often sufficient, provided that we only want to find some result and do not care
+about the underlying topic structure which might give us more insight into a document or
 even a collection of many documents.
 Topic models enable us to not only search documents by the themes that they contain, but
 also give us a tool with which we can automatically organize and structure text corpora.
 It is assumed that a document exhibits multiple topics and each 
 is a distribution over words. Consider, for instance, a corpus with texts about 
-the digital humanities. A topic model algorithm might output that the text corpus
+digital humanities. A topic model algorithm might output that the text corpus
 contains the topics \textit{Computer Science}, \textit{Linguistics} and \textit{Philosophy}.
-But since every topic is a distribution over words, the algorithm won't just output '\textit{Computer Science}', 
+But since every topic is a distribution over words, the algorithm will not just output '\textit{Computer Science}', 
 but will rather give a distribution over words, which we then can identify as the topic '\textit{Computer Science}':
-e.g. \textit{algorithm, program, complexity, machine, turing, artificial intelligence, etc}.
+e.g. \textit{algorithm, program, complexity, machine, Turing, artificial intelligence}, etc.
 \\
 Topic Models can also be thought of as a way of clustering similar documents.
-Scientific papers, books, tweets, blogs can be organized according to the 
-themes in them. With topic models organizing a large corpus becomes feasible. \\
-Latent Dirichlet Allocation (LDA) is a generative topic model. That means, that 
+Scientific papers, books, tweets, blogs etc. can be organized according to the 
+themes they feature. With topic models organizing a large corpus becomes feasible. \\
+Latent Dirichlet Allocation (LDA) is a generative topic model. This means that 
 the topic and word distribution of a document can be explained by a generative
-model. In machine learning generative models are used \textit{simulate} data points.
+model. In machine learning generative models are used to \textit{simulate} data points.
 The goal is to infer the hidden parameters which are assumed to be known in a 
-generative model. Hence, inference can be seen as reversing the the generative 
+generative model. Hence, inference can be seen as reversing the generative 
 process. In the case of Latent Dirichlet Allocation the hidden variables are the
 per-document topic distribution, the per-document per-word topic assignments and
 the topics themselves. \\
+
 Latent Dirichlet Allocation was introduced by David Blei, Andrew Ng, and Michael Jordan in 2003 \cite{blei2003latent}.
-Since then it has been applied in various different domains to many different sorts of texts:
-For instance in the domain of public health,\cite{paul2011you} analyzed Tweets with LDA in order 
-to track illnesses over time. LDA is not restricted to operate on 'classical' documents; it was also 
-just recently applied in bioinformatics. \cite{pinoli2014latent} annotated genes with a feature term 
+Since then it has been applied in various different domains to many different sorts of texts. 
+It is not restricted to operate on `classical' documents. It was applied, for instance, in the domain of public health, where
+\cite{paul2011you} analyzed tweets with LDA in order to track illnesses over time. It was also 
+just recently applied in bioinformatics. \cite{pinoli2014latent} annotated genomes with a feature term 
 that describes a feature with LDA.
 \\
-As the intersection of computing and the humanities grows, topic models will become more important.
-The humanities profit from algorithmic methodologies towards large text corpora for obvious reasons;
-manually structuring those is not an option. Furthermore, the low-dimensional structure of a text corpus
-might also give us insight about the semantic levels.
-\\
+As the intersection of computing and humanities grows, topic models will become more important.
+Humanities profit from algorithmic methodologies applied on large text corpora for obvious reasons;
+manually structuring those is mostly not an option. Moreover, one may gain insight about the semantic levels when
+examining the low-dimensional structure of a text corpus.\\
 After a section about preliminaries and notation this report will discuss the generative model, 
 which can also be seen as a concise way to formulate the conditions of Latent Dirichlet Allocation.
 Afterwards, the problem of Bayesian inference is discussed and a solution, the Gibbs Sampling algorithm, is presented.
@@ -122,9 +134,9 @@ is summarized in the following table.
 \textbf{symbol} & \textbf{description} \\
  $\alpha$       & parameter of the Dirichlet prior on the per-document topic distributions \\
  $\beta$        & parameter of the Dirichlet prior on the per-topic word distribution \\ 
- $\theta_i$      & topic distribution for document i \\
- $\varphi_k$   & word distribution for topic k \\
- $z_{ij}$         & topic for the j th word in document i, and \\
+ $\theta_i$      & topic distribution for document $i$ \\
+ $\varphi_k$   & word distribution for topic $k$ \\
+ $z_{ij}$         & topic for the $j$-th word in document $i$, and \\
  $w_{ij}$        & specific word.
   
 \end{tabular}
@@ -134,20 +146,23 @@ is summarized in the following table.
 \end{table}
 
 
-In order to understand in what way topics are assumed to be distributed, the multinomial
-and Dirichlet distribution including important properties will be shortly summarized.
+In order to understand in what way topics are assumed to be distributed the multinomial
+and Dirichlet distribution including important properties will be summarized briefly.
 
 \subsubsection{Multinomial Distribution}
 
-The binomial distribution is a discrete distribution over events with two outcomes.
-The probability mass function (PMF) is given by (\ref{binom}).
+The binomial distribution is a discrete distribution over events with two outcomes. It gives
+the probability of obtaining $k$ successes out of $n$ trials, where each success has a probability 
+of $p$.
+The probability mass function (PMF) is given by (\autoref{binom}).
 
 \begin{equation} \label{binom}
 \Pr(X = k) = \binom n k  p^k(1-p)^{n-k}
 \end{equation}
 
+
 The binomial distribution is a special case of the multinomial distribution.
-The multinomial distribution models events which have $k$ categories, 
+The multinomial distribution models events which have $k$ outcomes, 
 where each has a fixed probability. The probability mass function is given by 
 
 \begin{equation}
@@ -156,19 +171,25 @@ f(x_1,\ldots,x_k;n,p_1,\ldots,p_k) = { \displaystyle {n! \over x_1!\cdots x_k!}p
 
 
 \subsubsection{Dirichlet Distribution}
-The Dirichlet distribution $Dir(\alpha)$ is a probability distribution parameterized by a positive real valued vector $\alpha$.
+The Dirichlet distribution $\Dir(\alpha)$ is a probability distribution parameterized by a positive real valued vector $\alpha$.
 The probability density function is given by:
 
 \begin{equation}
-f \left(x_1,\cdots, x_{K}; \alpha_1,\cdots, \alpha_K \right) = \frac{\Gamma\left(\sum_{i=1}^K \alpha_i\right)}{\prod_{i=1}^K \Gamma(\alpha_i)} \prod_{i=1}^K x_i^{\alpha_i - 1}       \qquad\boldsymbol{\alpha}=(\alpha_1,\cdots,\alpha_K) 
+f \left(x_1,\cdots, x_{K}; \alpha_1,\cdots, \alpha_K \right) = \frac{\Gamma\left(\sum_{i=1}^K \alpha_i\right)}{\prod_{i=1}^K \Gamma(\alpha_i)} \prod_{i=1}^K x_i^{\alpha_i - 1}
 \end{equation}
+where $\Gamma()$ is the Gamma function.
 
 The Dirichlet distribution is often also expressed with the inverse of the Beta function as a normalizing constant.
-${\mathrm{B}(\boldsymbol\alpha)}$ is constant as it only depends on the fixed parameter $\alpha$.
+${\mathrm{B}(\boldsymbol\alpha)}$ is constant as it only depends on the fixed parameter $\boldsymbol\alpha$.
 
 \begin{equation}
-f \left(x_1,\cdots, x_{K}; \alpha_1,\cdots, \alpha_K \right) = \frac{1}{\mathrm{B}(\boldsymbol\alpha)} \prod_{i=1}^K x_i^{\alpha_i - 1}
+f \left(x_1,\cdots, x_{K}; \alpha_1,\cdots, \alpha_K \right) = \frac{1}{\mathrm{B}(\boldsymbol\alpha)} \prod_{i=1}^K x_i^{\alpha_i - 1} \qquad\boldsymbol{\alpha}=(\alpha_1,\cdots,\alpha_K) 
 \end{equation}
+ where 
+ \begin{equation} 
+ \mathrm{B}(\boldsymbol\alpha) = \frac{\prod_{i=1}^K \Gamma(\alpha_i)}{\Gamma\left(\sum_{i=1}^K \alpha_i\right)},\qquad\boldsymbol{\alpha}=(\alpha_1,\cdots,\alpha_K)
+ \end{equation}
+
 
 The expected value of the Dirichlet distribution is simply computed by:
 
@@ -184,41 +205,43 @@ where
 The support of the Dirichlet distribution of order $K$ is the $(K-1)-$simplex. For $K=3$ the $2-$simplex is given by a
 regular triangle, where each corner is an event. The vertices are  $(0,0,1), (0,1,0)$ and $(1,0,0)$.
 A point $\vec{p} = (p_1,p_2,p_3)$ on this probability simplex corresponds to a certain event.
-The Dirichlet distribution is \textit{conjugate} to the multinomial distributions, which means that 
-for an observation coming from a multinomial distribution
+%The Dirichlet distribution is \textit{conjugate} to the multinomial distributions, which means that 
+%for an observation coming from a multinomial distribution
 
 
 \begin{figure}[!tbp]
   \centering
-  \subfloat[$Dir(\alpha= \langle 2,1,1 \rangle)$]{\includegraphics[width=0.3\textwidth]{img/alpha211}\label{fig:f1}}
+  \subfloat[$\Dir(\alpha= \langle 2,1,1 \rangle)$]{\includegraphics[width=0.33\textwidth]{img/alpha211}\label{fig:f1}}
   \hfill
-  \subfloat[$Dir(\alpha= \langle 2,2,2 \rangle)$]{\includegraphics[width=0.3\textwidth]{img/alpha222}\label{fig:f2}}
+  \subfloat[$\Dir(\alpha= \langle 2,2,2 \rangle)$]{\includegraphics[width=0.33\textwidth]{img/alpha222}\label{fig:f2}}
   \hfill
-  \subfloat[$Dir(\alpha=\langle 10,10,10 \rangle )$]{\includegraphics[width=0.3\textwidth]{img/alpha101010}\label{fig:f3}}
+  \subfloat[$\Dir(\alpha=\langle 10,10,10 \rangle )$]{\includegraphics[width=0.33\textwidth]{img/alpha101010}\label{fig:f3}}
   \hfill
-  \caption{Dirichlet distributions in the two-dimensional simplex	 with different $\alpha$. The Corners $A$, $B$, $C$
-  correspond to topics. More probable regions on the simplex are shown by a heat map, i.e. (dark) red corresponds to the
+  \caption{Dirichlet distributions in the two-dimensional simplex with different $\alpha$. The corners $A$, $B$, $C$
+  correspond to topics. Regions of higher probability are shown by a heat map, i.e. (dark) red corresponds to the
   most probable sample.}
 \end{figure}
 
 
 
 \subsection{Plate Notation}
-In a probabilistic graphical model conditional dependence between various random variables are often depicted in plate notation.
+In a probabilistic graphical model conditional dependencies between various random variables are often depicted in plate notation.
 Plate notation is a concise method for visualizing the factorization of the joint probability. 
-Typically shaded nodes stand for \textit{observed} random variables.
+Typically, shaded nodes stand for \textit{observed} random variables.
 The plates represent the repeated structure. 
 
 \begin{figure}[H]
 \centering
 $\vinput{dependence_graph} \hspace{1cm }\vpointer  \hspace{1cm} \vinput{plate_dependence_graph}$
- \caption{Plate notation as a way to summarize conditional dependencies.}
+ \caption{Plate notation as a way to summarize conditional dependencies. Shaded nodes represent \textit{observed} variables.
+ Here, the $X_i$ are conditionally dependent on $Y$. In plate notation all the $X_i$ are summarized as one plate.}
   \label{fig:plate}
 \end{figure}
 
-The joint probability of the probabilistic graphical model depicted in (\ref{fig:plate}) is
+The joint probability of the probabilistic graphical model depicted in (\autoref{fig:plate}) is
 \begin{align}
-P[X_1,\ldots,X_n]=\prod_{i=1}^nP[X_i | parent(X_i)] = \prod_{i=1}^nP[X_i | Y]
+Pr[X_1,\ldots,X_n] &=\prod_{i=1}^nPr[X_i | \parent(X_i)] \\
+                            &= \prod_{i=1}^nPr[X_i | Y] \notag
 \end{align}
 
 The plate notation will be used in the next section to have a concise representation of
@@ -228,13 +251,18 @@ Latent Dirichlet Allocation and especially the conditional dependencies.
 
 
 \subsection{Generative Process}
+Generative models generate data values according to a probability distribution. In machine learning
+generative models are used to estimate the joint probability distribution $Pr(X | Y)$ of observed data $X$
+and labels $Y$. In the context of probabilistic topic models, $Y$ corresponds to the latent variables and $X$
+to the (observable) words in a corpus.
 Latent Dirichlet Allocation assumes the following generative process for
 a corpus: \\
 
 \begin{algorithm}[H]
 \caption{Generative Model}
-\KwIn{Dirichlet parameters $\alpha, \beta$}
-\KwOut{$D$ documents (bag of words) with $N$ words}
+\KwIn{Number of words $N$, Number of topics $K$ \\ 
+\hspace{1.23cm} Dirichlet parameters $\alpha  \in \mathbb{R}_+^K, \beta \in \mathbb{R}_+^N$}
+\KwOut{$D$ documents (bag-of-words) with $N$ words each}
 1. Choose $ \theta_i \, \sim \, \mathrm{Dir}(\alpha) $,  \\
 2. Choose $ \varphi_k \, \sim \, \mathrm{Dir}(\beta) $ \\
   \For{each word position $i,j$}{ %
@@ -247,68 +275,76 @@ a corpus: \\
 The generative model contains the main ideas of LDA. Data is treated as observations
 coming from a process which samples words from a (hidden) distribution over topics.
 Every word is generated independently from any other word. The generative process
-does not take word order into account. Hence, the generative model is a produces a
-bag of words, where order does not play a role. \\
-If $3$ topics are chosen, e.g. \textit{Linguistics, Philosophy and Computer Science}, and if 
+does not take word order into account. Hence, the generative model produces a
+bag-of-words, where word order does not play a role. \\
+If $3$ topics are chosen, e.g. \textit{Linguistics, Philosophy} and \textit{Computer Science}, and if 
 equal probability is given to all of them, then the generative process might produce 
 bag-of-words resembling a text from \textit{Digital Humanities}. By putting more weight 
-towards \textit{Linguistics} and \textit{Computer Science} the result would resemble 
+on \textit{Linguistics} and \textit{Computer Science} the result would resemble 
 documents from the domain of \textit{Computer Linguistics}.
-The generative process of LDA is depicted as a bayesian probabilistic model in Figure \ref{fig:lda_plate}.
+The generative process of LDA is depicted as a Bayesian probabilistic model in \autoref{fig:lda_plate}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.55]{img/generative}
-\caption{example}
+\includegraphics[scale=0.35]{img/generative}
+\caption{The generative process. Every word originates from a topic coming from a distribution over topics.
+The topics and their word distributions are depicted on the far left. E.g. the \textit{yellow} topic is made up of 
+the word \textit{gene} by $4\%$. Taken from \cite{blei2012probabilistic}}.
   \label{fig:generative}
 \end{figure}
 
-In Figure \ref{fig:generative} the generative model is illustrated. The topic proportions are plotted
-as a bar graph, the colored coins are the topic assignments for each word...
+In \autoref{fig:generative} the generative model is illustrated. The topic proportions are plotted
+as a bar chart, the colored coins are the topic assignments for each word.
 
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.35]{img/lda_plate}
+\includegraphics[scale=0.4]{img/lda_plate}
  \caption{Plate notation for Latent Dirichlet Allocation corresponding to the generative process. Every vertex depicts a random variable.
- The shaded node $w_{d,n}$ stands for the observed words. Everything else is not observed and must be inferred.}
+ The shaded node $w_{d,n}$ stands for the observed words. Everything else is not observed and must be inferred. Taken from \cite{blei2012probabilistic}}.
   \label{fig:lda_plate}
 \end{figure}
 
 \subsection{Experiments}
 To fully grasp what LDA will produce as output, this section will provide an example with 
 \textit{real world} data. \\
-Gensim \footnote{ https://radimrehurek.com/gensim/index.html } is a tool for unsupervised semantic modelling.
-The idea is to define three topics by using wikipedia articles. Then, all those wikipedia articles are
-put in one corpus to see whether LDA can reproduce those the three original topics.
+Gensim\footnote{ https://radimrehurek.com/gensim/index.html } is a tool for unsupervised semantic modeling.
+The idea is to define three topics by using Wikipedia articles. Then, all those Wikipedia articles are
+put into one corpus to see whether LDA can reproduce those three original topics.
+\\
+With Gensim the model can be trained very easily\footnote{the complete ipython notebook can be found here: https://github.com/flobeck/algo-seminar/blob/master/ipython-notebook/lda$\textunderscore$mixture.ipynb}: \\
+\begin{lstlisting}[label=noam,caption=\; Query for a document]
+K = 3
+lda = ldamodel.LdaModel(CORPUS, id2word=dictionary, num_topics=K, 
+update_every=1, chunksize=1, passes=350)
+\end{lstlisting}
 
-With gensim the model can be trained very easily: \\
-lda = ldamodel.LdaModel(CORPUS, id2word$=$dictionary, num$\_$topics$=K$, update$\_$every$=1$, chunksize$=1$, passes $=350$)
-
+\texttt{CORPUS} contains the following preprocessed Wikipedia articles. The preprocessing steps comprise removing stop words and
+transforming the documents to a bag-of-words.
 \vspace{1.3cm}
 
 \begin{tabular}{l l}
-$\bullet$ computer science & \parbox[t]{10cm}{Algorithm, Computation, Computer Programming,  Programming Language\\ Computational complexity theory, Computability theory, Artificial Intelligence}\\  
+$\bullet$ \textit{Computer science} & \parbox[t]{10cm}{Algorithm, Computation, Computer Programming,  Programming Language, Computational complexity theory, Computability theory, Artificial Intelligence}\\  
 \\
-$\bullet$ philosophy & \parbox[t]{10cm}{Epistemology, Metaphysics, Continental philosophy, Ancient Greek,\\ Ethics, Aesthetics, Art, Phenomenology (philosophy), Pythagoras, Plato} \\
+$\bullet$ \textit{Philosophy} & \parbox[t]{10cm}{Epistemology, Metaphysics, Continental philosophy, Ancient Greek,\\ Ethics, Aesthetics, Art, Phenomenology (philosophy), Pythagoras, Plato} \\
 \\
-$\bullet$ linguistics &  \parbox[t]{10cm}{Language, Semantics, Syntax, Phonology, Grammar,
-               Phonetics, Pragmatics,  Corpus linguistics,\\
-               Linguistic prescription, Linguistic description}
+$\bullet$ \textit{Linguistics} &  \parbox[t]{10cm}{Language, Semantics, Syntax, Phonology, Grammar,
+               Phonetics, Pragmatics,  Corpus linguistics, Linguistic prescription, Linguistic description}
 \end{tabular}
 
 \vspace{1.3cm}
 
                                
-The output of a call of LDA with $K=3$ is summarized in Table \ref{table:lda_output}.
+The output of a call of LDA with \texttt{K=3} is summarized in table \ref{table:lda_output}.
 
 
 \begin{table}[h!]
-\caption{Each of the three topics is a distribution over the words. E.g. topic 1 resembles \textit{computer science}.}
+\caption{Each of the three topics is a distribution over the words. E.g. topic 1 resembles \textit{computer science}.
+The table only shows the most relevant words for each topic.}
 \label{table:lda_output}
 \begin{tabular}{l l l}
-\textbf{TOPIC} & \textbf{PERCENTAGE} & \textbf{WORD} \\
+\textbf{TOPIC} & \textbf{REL. FREQUENCIES} & \textbf{WORD} \\
 
 1  &   0.010 & programming  \\
     &   0.009 & turing \\
@@ -345,35 +381,56 @@ The output of a call of LDA with $K=3$ is summarized in Table \ref{table:lda_out
 \end{tabular}
 \end{table}
 
-
-Given a set corpus of wikipedia articles, LDA finds three topics which resemble the topics \textit{computer science},
+\noindent
+Given a set corpus of Wikipedia articles, LDA finds three topics which resemble the topics \textit{computer science},
 \textit{philosophy} and \textit{linguistics}. 
 
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{img/experiment}
- \caption{}
+ \caption{Topic proportions for some of the Wikipedia articles that were used to train the model. The Wikipedia
+ article on `Pythagoras', for instance, is classified as a document in the category `philosophy' with very high confidence.
+ Note that albeit the confidence is very high it is not $100\%$. Due to the model every document exhibits all the $K$ topics, but to a very different degree.}
    \label{fig:experiments}
 \end{figure}
 
+\noindent
+Furthermore, it is possible to query where on the topic simplex an unseen document is located:
+
+\begin{lstlisting}[label=noam,caption=\; Query for a document]
+w = wikipedia.page("Noam Chomsky").content
+bow_vector = dictionary.doc2bow(tokenize(w))
+print lda[bow_vector]
+
+>> [(1, 0.032599745516170064), 
+(2, 0.30504589551791855),
+(3, 0.66235435896591133)]
+\end{lstlisting}
+
+
+In this case (Listing 2), the Wikipedia article on the linguist \textit{Noam Chomsky} is made up of
+$66\%$ Topic 3 (\textit{Linguistics}), $30\%$ Topic 2 (\textit{Computer Science}) and
+$3\%$ Topic 1 (\textit{Philosophy}).
+
+
 \subsection{(Bayesian) Inference}
 
-Inference means computing the \textit{posterior} and corresponds to '\textit{reversing}' the generative model.
-In other words, inference is about fitting a generative model (the hidden parameters), such that it explains the observed data.
+Inference means computing the \textit{posterior} and corresponds to `\textit{reversing}' the generative model.
+In other words, inference is about fitting a generative model (or rather the hidden parameters), such that it explains the observed data.
 
-Many methods solving the problem of maximum aposterior estimation have been proposed. The original paper on LDA \cite{blei2003latent} suggested a Variational Bayesian method which can be understood as an extension of the expectation-maximization algorithm \cite{fox2012tutorial}. Gibbs Sampling as a way to compute the
+Many methods solving the problem of maximum a posteriori estimation have been proposed. The original paper on LDA \cite{blei2003latent} suggested a Variational Bayesian method which can be understood as an extension of the expectation-maximization algorithm \cite{fox2012tutorial}. Gibbs Sampling as a way to compute the
 posterior was proposed by Steyvers and Griffiths \cite{steyvers2007probabilistic}	 \\
 
 
 
 
-\begin{align*} \label{post}
+\begin{equation} \label{post}
 p(\beta_{1:K}, \theta_{1:D}, z_{1:D} | w_{1:D} ) = \frac{p(\beta_{1:K}, \theta_{1:D}, z_{1:D},w_{1:D} )}{p(w_{1:D})}
-\end{align*}
+\end{equation}
 
-The posterior is intractable to compute. More precisely, the denominator of (\ref{post}), the marginal probability, is not feasible to 
-compute. To compute $p(w_{1:D})$ one would have to sum the joint distribution over all possible instances of the hidden topic structure.
+The posterior is intractable to compute. More precisely, the denominator of (\autoref{post}), the marginal probability, is not feasible to 
+compute. To compute $p(w_{1:D})$ one would have to sum up the joint distribution over all possible instances of the hidden topic structure.
 
 
 
@@ -381,22 +438,21 @@ compute. To compute $p(w_{1:D})$ one would have to sum the joint distribution ov
 
 Gibbs Sampling, named after the physicist Josiah Willard Gibbs, is a Markov Chain Monte Carlo Algorithm (MCMC) and can be used to approximate the marginal and posterior 
 distribution by constructing a Markov chain which converges to the target distribution.
-A Markov chain represent a random process, where going from one state to another is determined by a transition matrix.
+A Markov chain represents a random process, where going from one state to another is determined by a transition matrix $T$.
 An entry $p_{i,j}$ corresponds to the probability of going from state $i$ to state $j$.
-
-With Gibbs Sampling the goal is to integrate out the per document topic proportions $\theta$.
-
-In order to assign a word to a topic, the Gibbs sampler computes the probability of a topic $z_d,n$ if it is assigned to a word $w_d,n$, where 
+The goal of Gibbs Sampling is to integrate out the per-document topic proportions $\theta$.
+\noindent
+In order to assign a word to a topic, the Gibbs sampler computes the probability of a topic $z_{d,n}$ if it is assigned to a word $w_{d,n}$, where 
 all other word-to-topic assignments are given or fixed. $z_{\textunderscore_ {d,n}}$ is defined to be the notation for all topic assignments except 
 for for $z_{d,n}$ \\
 Formally:
 
 \begin{equation} \label{eq:gibbs}
 p(z_{d,n} = k | z_{\textunderscore_ {d,n}},w,\alpha, \beta) = \frac{p(z_{d,n}=k, z_{\textunderscore_ {d,n}} | w, \alpha, \beta)}{p(z_{\textunderscore_ {d,n}} | w,\alpha, \beta)}
-\ref{}
+%\ref{}
 \end{equation}
 
-It was shown \cite{griffiths2004finding} that equation \ref{eq:gibbs} can be calculated by:
+It was shown \cite{griffiths2004finding} that \autoref{eq:gibbs} can be calculated by:
 
 \begin{equation} \label{eq:gibbs_}
 p(z_{d,n} = k | z_{\textunderscore_ {d,n}},w,\alpha, \beta) \propto \frac{C_{n,k}^{WT}+\beta}
@@ -405,20 +461,20 @@ p(z_{d,n} = k | z_{\textunderscore_ {d,n}},w,\alpha, \beta) \propto \frac{C_{n,k
 
 $C_{n,k}^{WT}$ and $C_{d,k}^{DT}$ are matrices. $C_{n,k}^{WT}$ is the number of times topic $k$ was assigned to 
 word $n$. On the other hand $C_{d,k}^{DT}$ is the number of times topic $k$ was assigned to words in document $d$.
-
+\noindent
 The first step of the Gibbs Sampling algorithm is to randomly assign every word of all documents to a topic. By this 
 the count matrices $C_{n,k}^{WT}$ and $C_{d,k}^{DT}$ are filled with values.
-Gibbs Sampling will now sample topic assignments according to \ref{eq:gibbs_}.
-
-The first term of the product in \ref{eq:gibbs_} also corresponds to an estimate of $\varphi_i$, 
-and the second therm to an estimate of $\theta_j$
+Gibbs Sampling will now sample topic assignments according to \autoref{eq:gibbs_}.
+\noindent
+The first term of the product in \autoref{eq:gibbs_} also corresponds to an estimate of $\varphi_i$, 
+and the second term to an estimate of $\theta_j$
 
 \begin{equation}
-\hat{\varphi_i} = \frac{C_{i,j}^{WT}+\beta} {\sum_{k=1}^{W}C_{k,j}^{WT}+W\beta}
+\hat{\varphi}_i = \frac{C_{i,j}^{WT}+\beta} {\sum_{k=1}^{W}C_{k,j}^{WT}+W\beta}
 \end{equation}
 
 \begin{equation}
-\hat{\theta_j} = \frac{C_{d,j}^{DT}+\alpha}{\sum_{t=1}^{T}C_{d,t}^{DT}+T\alpha}
+\hat{\theta}_j = \frac{C_{d,j}^{DT}+\alpha}{\sum_{t=1}^{T}C_{d,t}^{DT}+T\alpha}
 \end{equation}
 
 
@@ -432,13 +488,14 @@ Consider the sentence (which represents one document out of a corpus):
 \textit{Text mining algorithms can be used to find structure in text corpora like Plato’s $dialogues$}
 \vspace{1cm}
 
-Apriori we choose the number of topics $K=3$
+A priori we choose the number of topics $K=3$
 \\
-The first step is to remove stop words and randomly assign each word to a topic randomly. This is done to all documents.
+The first step is to remove stop words and randomly assign each word to a topic (\autoref{tab:rand}). This is done to all documents.
 \\
 \begin{table}[h]
 \centering
-\caption{Tables have headers.}
+\caption{random initialization of topic assignments to words.}
+\label{tab:rand}
 \begin{tabular}{| c | c | c | c | c | c | c | }
 \hline
 1 & 3 & 2 & 1 & 2 & 1 & 2 \\
@@ -448,12 +505,14 @@ text & mining & algorithms & structure & corpora & Plato & dialogues \\
 \end{tabular}
 \end{table}
 
-The counts for all documents:
+The counts for all documents is shown in \autoref{tab:count}.
 \\ \\
 \begin{table}[h]
 \centering
-\caption{(random) word counts for every topic}
-\begin{tabular}{ l | c l c | c  }
+\caption{word counts for every topic}
+\label{tab:count}
+\begin{tabular}{| l | c l c | c  }
+\hline
 & \textbf{1} & \textbf{2} & \textbf{3} \\
 \hline 
 text & 65 & 54 & 59 \\
@@ -463,6 +522,7 @@ structure & 20 & 12 & 14 \\
 corpora &  5 & 2 & 12 \\
 Plato &  35 & 33 & 42 \\
 dialogues &  24 & 27 & 31 \\
+\hline
 \end{tabular}
 \end{table}
 
@@ -470,7 +530,7 @@ The goal is now to resample the word \textit{algorithm}.
 
 \begin{table}[h]
 \centering
-\caption{Tables have headers.}
+\caption{We first choose \textit{algorithm} to be resampled.}
 \begin{tabular}{ | c | c | c | c | c | c | c |}
 \hline
 1 & 3 & ??? & 1 & 2 & 1 & 2 \\
@@ -486,15 +546,18 @@ In Figure \ref{fig:topics_distr} the sampling is depicted. The blue bars corresp
 the topic distribution, the yellow bars to the word distribution over topics.
 Accordingly, it is most likely that \textit{algorithm} is assigned to topic 1, since the green 
 area for topic 1 is the largest.
+After assigning the word, the word counts for each topic get updated and 
+the first iteration of the Gibbs sampling algorithm is completed. This process is 
+repeated several times, until the assignments do not change anymore. 
+
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.30]{img/topics_distr}
- \caption{}
+ \caption{Sampling according to the green area.}
   \label{fig:topics_distr}
 \end{figure}
 
-According to the above 
 
 \end{example}
 
@@ -509,12 +572,13 @@ corpora. The hidden structure must be uncovered in order to gain information
 about the low-dimensional structure behind a text corpus.
 A topic modeling algorithm takes a corpus as an input and will output the topics
 running through that corpus.
+The generative process is the essential idea behind Latent Dirichlet Allocation.
+Words come from a distribution over topics, which are again distribution over words.
+Reversing the generative model by applying Gibbs sampling yields a solution of 
+the inference problem, which can not be solved analytically. 
 
-Reversing the generative model by applying gibbs sampling yields a solution of 
-the inference problem.
 
-
-
+\clearpage
 
 
 
