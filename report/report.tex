@@ -1,5 +1,6 @@
 \documentclass[a4paper,ngerman, english]{atseminar}
 
+\usepackage[dvipsnames]{xcolor}
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{algorithm2e}
@@ -11,16 +12,18 @@
 \usepackage{tabularx}
 \usepackage[final]{pdfpages}
 \usepackage{float}
-\usepackage{xcolor}
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{hyperref}
+
+
 
 \DeclareCaptionFont{white}{\color{white}}
 \DeclareCaptionFormat{listing}{%
   \parbox{\textwidth}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}\vskip-4pt}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
 \lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
+
 
 
 \setboolean{@twoside}{false}
@@ -54,6 +57,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%% begin of document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+\newcommand{\ed}{\textcolor{Blue}}[1]
 
 \maketitle
 
@@ -134,7 +138,7 @@ is summarized in the following table.
 \textbf{symbol} & \textbf{description} \\
  $\alpha$       & parameter of the Dirichlet prior on the per-document topic distributions \\
  $\beta$        & parameter of the Dirichlet prior on the per-topic word distribution \\ 
- $\theta_i$      & topic distribution for document $i$ \\
+ $\theta_i$     & topic distribution for document $i$ \\
  $\varphi_k$   & word distribution for topic $k$ \\
  $z_{ij}$         & topic for the $j$-th word in document $i$, and \\
  $w_{ij}$        & specific word.
@@ -248,7 +252,14 @@ The plate notation will be used in the next section to have a concise representa
 Latent Dirichlet Allocation and especially the conditional dependencies.
 
 %\input{plate_lda}
-
+\ed{
+\subsection{Machine Learning}
+In this section LDA will be discussed in the language of machine learning....
+Machine learning algorithms or problems are usually classified into two broad categories: supervised and unsupervised learning\footnote{Reinforcement learning does not fall into this categorization. Since it is not of importance in this context, it won't be considered here.}. In supervised learning the task is to find a hypothesis or model from labeled data such that the model can correctly classify the data. Given a set of \textit{training examples} $\{x_{1:N}, y_{1:N}\}$, where $x_i \in X$ is an instance or \textit{feature vector} and $y_i \in Y$ is it's corresponding label a supervised machine learning algorithm must find a hypothesis $h: X \rightarrow Y$.
+In contrast to that, in an unsupervised machine learning problem there are no labels. Clustering, for instance, falls into the domain of unsupervised learning. Given data vectors $\{x_{1:N} \}$ the task is to label them. The underlying premise of clustering algorithms (such as \textit{K-Means} for example) is that data that belongs to the same cluster is more \textit{similar} to each other than to data from other clusters. Given an input space $X$ and two clusters $V = \{v_{1:N} | v \in X \}$ and $W= \{w_{1:M} | w \in X \}$ and some notion of similarity $s: X \times X \rightarrow \mathbb{R}$, it must hold that $\forall v_1, v_2 \in V$ and $\forall w \in W: s(v_1, v_2) > s(v_1, w)$.
+Latent Dirichlet Allocation is an unsupervised model, which can be seen as a clustering algorithm. The input space $X$ consists of documents, which exhibit $K$ topics. Unlike \textit{K-Means}, in LDA a document can be part of more than one cluster (see also \ref{fig:experiments}). 
+...which will be discussed in the next section..
+}
 
 \subsection{Generative Process}
 Generative models generate data values according to a probability distribution. In machine learning
@@ -284,6 +295,30 @@ on \textit{Linguistics} and \textit{Computer Science} the result would resemble
 documents from the domain of \textit{Computer Linguistics}.
 The generative process of LDA is depicted as a Bayesian probabilistic model in \autoref{fig:lda_plate}.
 
+
+
+From the Bayesian probabilistic model one can derive the probability of a corpus $\mathcal{D} = \{w_1,...,w_n\}$.
+First, the joint distribution of a mixtures of topics $\theta$, $N$ topics \textbf{z} and $N$ words \textbf{w} can
+be calculated by considering the conditional structure given in the graphical model:
+
+\begin{equation}
+p(\theta, \textbf{z}, \textbf{w} | \alpha, \beta) = p(\theta | \alpha) \prod^{N}_{n=1} p(z_n | \theta)p(w_n | z_n,\beta)
+\end{equation}
+
+In order to arrive at the marginal distribution of one single document \textbf{w}, one must integrate over the (continuous) random variable $\theta$ and sum over the topic variable z.
+
+\begin{equation}
+p(\textbf{w} | \alpha, \beta) = \int p(\theta | \alpha) \bigg( \prod^{N}_{n=1} \sum_{z_n} p(z_n | \theta)p(w_n | z_n,\beta) \bigg) d\theta
+\end{equation}
+
+The probability of the corpus $p(\mathcal{D} | \alpha, \beta)$ is now obtained by multiplying all the marginal probabilities of the $M$ documents:
+
+\begin{equation}
+p(\mathcal{D} | \alpha, \beta) = \prod_{d=1}^{M} \int p(\theta_d | \alpha) \bigg( \prod^{N_d}_{n=1} \sum_{z_{dn}} p(z_{dn} | \theta_d)p(w_n | z_{dn},\beta) \bigg) d\theta_d
+\end{equation}
+
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{img/generative}
@@ -306,7 +341,7 @@ as a bar chart, the colored coins are the topic assignments for each word.
   \label{fig:lda_plate}
 \end{figure}
 
-\subsection{Experiments}
+\subsection{Experiments and Applications}
 To fully grasp what LDA will produce as output, this section will provide an example with 
 \textit{real world} data. \\
 Gensim\footnote{ https://radimrehurek.com/gensim/index.html } is a tool for unsupervised semantic modeling.
@@ -399,8 +434,8 @@ Given a set corpus of Wikipedia articles, LDA finds three topics which resemble 
 Furthermore, it is possible to query where on the topic simplex an unseen document is located:
 
 \begin{lstlisting}[label=noam,caption=\; Query for a document]
-w = wikipedia.page("Noam Chomsky").content
-bow_vector = dictionary.doc2bow(tokenize(w))
+noam = wikipedia.page("Noam Chomsky").content
+bow_vector = dictionary.doc2bow(tokenize(noam))
 print lda[bow_vector]
 
 >> [(1, 0.032599745516170064), 
@@ -412,6 +447,12 @@ print lda[bow_vector]
 In this case (Listing 2), the Wikipedia article on the linguist \textit{Noam Chomsky} is made up of
 $66\%$ Topic 3 (\textit{Linguistics}), $30\%$ Topic 2 (\textit{Computer Science}) and
 $3\%$ Topic 1 (\textit{Philosophy}).
+
+\ed{
+With Latent Dirichlet Allocation a model for document classification can be trained.
+}
+
+
 
 
 \subsection{(Bayesian) Inference}
