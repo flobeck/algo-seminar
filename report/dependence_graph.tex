@@ -2,8 +2,8 @@
     main node/.style={thick,circle,draw,font=\sffamily\Large}]
 
     \node[obs, main node] (2) {$X_1$};
-    \node[obs, main node] (3) [right=of 2]{$X_N$};
-	\node[latent, main node] (1) [above right=1cm of 2]{$Y$};
+    \node[obs, main node] (3) [right=of 2, xshift=0.7cm]{$X_N$};
+	\node[latent, main node] (1) [above right=1cm of 2]{$\mathbf{Y}$};
     
 
     \path (1) edge (2);

@@ -29,7 +29,7 @@
 \setboolean{@twoside}{false}
 
 
-\linenumbers
+%\linenumbers
 
 %% Please do not include packages that change the layout/size of the
 %% of the document. They will be removed.
@@ -47,6 +47,8 @@
 \newcommand*{\vpointer}{\vcenter{\hbox{\scalebox{2}{\Huge\pointer}}}}
 \DeclareMathOperator{\Dir}{Dir}
 \DeclareMathOperator{\parent}{parent}
+%\DeclareMathOperator{\Pr}{Pr}
+
 %Organizer macros:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -57,7 +59,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%% begin of document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\newcommand{\ed}{\textcolor{Blue}}[1]
+\newcommand{\ed}{\textcolor{Blue}}
 
 \maketitle
 
@@ -66,6 +68,7 @@
 
 %%%%% YOUR REPORT BEGINS HERE
 \section{Latent Dirichlet Allocation}
+
 \summaryauthor[Florian Becker]{Florian Becker}
 
 \begin{abstract}
@@ -99,34 +102,50 @@ but will rather give a distribution over words, which we then can identify as th
 e.g. \textit{algorithm, program, complexity, machine, Turing, artificial intelligence}, etc.
 \\
 Topic Models can also be thought of as a way of clustering similar documents.
-Scientific papers, books, tweets, blogs etc. can be organized according to the 
+Scientific papers, books, tweets, blogs etc.~can be organized according to the 
 themes they feature. With topic models organizing a large corpus becomes feasible. \\
-Latent Dirichlet Allocation (LDA) is a generative topic model. This means that 
-the topic and word distribution of a document can be explained by a generative
+Latent Dirichlet Allocation (LDA) is a generative topic model.
+In topic models the topic and word distribution of a document can be explained by a generative
 model. In machine learning generative models are used to \textit{simulate} data points.
-The goal is to infer the hidden parameters which are assumed to be known in a 
-generative model. Hence, inference can be seen as reversing the generative 
-process. In the case of Latent Dirichlet Allocation the hidden variables are the
+Given some data (e.g.~a text corpus) in a generative model one will assume that 
+there exists some process in the background which has generated the data. In our topic model context, this
+means that the process first decided what to pick as a topic and then decided which word to pick 
+from that topic. The generative process has certain \textit{parameters} and it is assumed that there must be a certain configuration that is most likely to have generated the observation.
+The goal is then to infer those hidden parameters. Hence, inference can be seen as reversing the generative 
+process. That means that we want to uncover the most likely configuration that has produced a document.
+In the case of Latent Dirichlet Allocation the hidden variables are the
 per-document topic distribution, the per-document per-word topic assignments and
 the topics themselves. \\
-
+Generally in \textit{discriminative} machine learning data-driven algorithms are building a model. 
+This process is called \textit{training} or \textit{learning} and refers to the fact that the model adapts iteratively 
+to the training data, such that eventually the model can explain the target variables. \textit{Explaining} the 
+data in a supervised model means, that the model delivers a label to a query. In unsupervised learning, 
+a model represents the structure of unlabeled data.
+In a generative (probabilistic) model however, we understand something else under the term \textit{model}.
+A \textit{model} in this context means something that actively models the data/observations. 
+Section \ref{sec:ml} and \ref{sec:generative} discuss the differences between discriminative and generative models in more detail. \\
 Latent Dirichlet Allocation was introduced by David Blei, Andrew Ng, and Michael Jordan in 2003 \cite{blei2003latent}.
 Since then it has been applied in various different domains to many different sorts of texts. 
-It is not restricted to operate on `classical' documents. It was applied, for instance, in the domain of public health, where
-\cite{paul2011you} analyzed tweets with LDA in order to track illnesses over time. It was also 
-just recently applied in bioinformatics. \cite{pinoli2014latent} annotated genomes with a feature term 
-that describes a feature with LDA.
+It is not restricted to operate on `classical' documents. It was applied, for instance, in the domain of public health, to
+analyze tweets with LDA in order to track illnesses over time \cite{paul2011you}. It was also 
+just recently applied in bioinformatics for annotating genomes with a feature term 
+that describes a feature with LDA \cite{pinoli2014latent} .
 \\
 As the intersection of computing and humanities grows, topic models will become more important.
 Humanities profit from algorithmic methodologies applied on large text corpora for obvious reasons;
-manually structuring those is mostly not an option. Moreover, one may gain insight about the semantic levels when
-examining the low-dimensional structure of a text corpus.\\
-After a section about preliminaries and notation this report will discuss the generative model, 
-which can also be seen as a concise way to formulate the conditions of Latent Dirichlet Allocation.
+manually structuring those is mostly not an option.\\
+LDA can also be seen as a way of reducing the dimensionality of a corpus, since the topic distribution is 
+a low dimensional representation of the documents \cite{masada2008comparing}.
+Thus, one may gain insight about the semantic levels when examining the low-dimensional structure of a text corpus.
+\\
+After a section about preliminaries and notation this report will introduce plate notation in section \ref{sec:plate}
+and the generative model in section \ref{sec:generative}. Section \ref{sec:ml} will discuss LDA in terms of machine learning 
+and will therefore also introduce some terminology. In section \ref{sec:graphical} plate notation will be used in order to 
+introduce a concise way to formulate Latent Dirichlet Allocation as a statistical model.
 Afterwards, the problem of Bayesian inference is discussed and a solution, the Gibbs Sampling algorithm, is presented.
 
 
-\subsection{Preliminaries and Notation}
+\subsection{Preliminaries and Notation} \label{sec:pre}
 
 Throughout this report the notation of the original paper by Blei et al. will be used and 
 is summarized in the following table.
@@ -141,8 +160,11 @@ is summarized in the following table.
  $\theta_i$     & topic distribution for document $i$ \\
  $\varphi_k$   & word distribution for topic $k$ \\
  $z_{ij}$         & topic for the $j$-th word in document $i$, and \\
- $w_{ij}$        & specific word.
-  
+ $w_{ij}$        & specific word \\
+ $\textbf{w}$  &  a sequence of words (a document) \\
+$\mathcal{D}$  &  a corpus of $M$ documents; $\mathcal{D} = \{$\textbf{$w_1$}....\textbf{$w_M$}$\}$
+
+ 
 \end{tabular}
 \label{XY:tab:interesting}
 % where X is the first letter of your first name and Y is the
@@ -175,36 +197,31 @@ f(x_1,\ldots,x_k;n,p_1,\ldots,p_k) = { \displaystyle {n! \over x_1!\cdots x_k!}p
 
 
 \subsubsection{Dirichlet Distribution}
-The Dirichlet distribution $\Dir(\alpha)$ is a probability distribution parameterized by a positive real valued vector $\alpha$.
+The Dirichlet distribution $\Dir(\alpha)$ is a probability distribution parameterized by a positive real valued vector $\boldsymbol{\alpha}=(\alpha_1,\cdots,\alpha_K)$.
 The probability density function is given by:
 
 \begin{equation}
 f \left(x_1,\cdots, x_{K}; \alpha_1,\cdots, \alpha_K \right) = \frac{\Gamma\left(\sum_{i=1}^K \alpha_i\right)}{\prod_{i=1}^K \Gamma(\alpha_i)} \prod_{i=1}^K x_i^{\alpha_i - 1}
 \end{equation}
-where $\Gamma()$ is the Gamma function.
+where $\Gamma$ is the Gamma function.
 
 The Dirichlet distribution is often also expressed with the inverse of the Beta function as a normalizing constant.
 ${\mathrm{B}(\boldsymbol\alpha)}$ is constant as it only depends on the fixed parameter $\boldsymbol\alpha$.
 
 \begin{equation}
-f \left(x_1,\cdots, x_{K}; \alpha_1,\cdots, \alpha_K \right) = \frac{1}{\mathrm{B}(\boldsymbol\alpha)} \prod_{i=1}^K x_i^{\alpha_i - 1} \qquad\boldsymbol{\alpha}=(\alpha_1,\cdots,\alpha_K) 
+f \left(x_1,\cdots, x_{K}; \alpha_1,\cdots, \alpha_K \right) = \frac{1}{\mathrm{B}(\boldsymbol\alpha)} \prod_{i=1}^K x_i^{\alpha_i - 1}
 \end{equation}
  where 
  \begin{equation} 
- \mathrm{B}(\boldsymbol\alpha) = \frac{\prod_{i=1}^K \Gamma(\alpha_i)}{\Gamma\left(\sum_{i=1}^K \alpha_i\right)},\qquad\boldsymbol{\alpha}=(\alpha_1,\cdots,\alpha_K)
+ \mathrm{B}(\boldsymbol\alpha) = \frac{\prod_{i=1}^K \Gamma(\alpha_i)}{\Gamma\left(\sum_{i=1}^K \alpha_i\right)}
  \end{equation}
 
 
 The expected value of the Dirichlet distribution is simply computed by:
 
 \begin{equation}
-\mathrm{E}[X_i] = \frac{\alpha_i}{\alpha_0}
+\mathrm{E}[X_i] = \frac{\alpha_i}{\alpha_0}, \qquad \alpha_0 = \sum_{i=1}^K\alpha_i.
 \end{equation}
-where 
-\begin{equation}
-\alpha_0 = \sum_{i=1}^K\alpha_i.
-\end{equation}
-
 
 The support of the Dirichlet distribution of order $K$ is the $(K-1)-$simplex. For $K=3$ the $2-$simplex is given by a
 regular triangle, where each corner is an event. The vertices are  $(0,0,1), (0,1,0)$ and $(1,0,0)$.
@@ -228,7 +245,9 @@ A point $\vec{p} = (p_1,p_2,p_3)$ on this probability simplex corresponds to a c
 
 
 
-\subsection{Plate Notation}
+\subsection{Plate Notation} \label{sec:plate}
+Generally, Bayesian networks (or probabilistic directed acyclic graphical models) represent conditional dependencies with
+a directed acyclic graph (DAG). A directed edge from a random variable $Y$ to a random variable $X$ means that $Y$ \textit{causes} $X$. \\
 In a probabilistic graphical model conditional dependencies between various random variables are often depicted in plate notation.
 Plate notation is a concise method for visualizing the factorization of the joint probability. 
 Typically, shaded nodes stand for \textit{observed} random variables.
@@ -236,36 +255,44 @@ The plates represent the repeated structure.
 
 \begin{figure}[H]
 \centering
-$\vinput{dependence_graph} \hspace{1cm }\vpointer  \hspace{1cm} \vinput{plate_dependence_graph}$
- \caption{Plate notation as a way to summarize conditional dependencies. Shaded nodes represent \textit{observed} variables.
+\subfloat[Regular visualization of a graphical model as a directed acyclic graph (DAG).]{$\vinput{dependence_graph}$} 
+\hspace{1cm}
+$ \vpointer $
+\hspace{1cm}
+\subfloat[Plate notation.]{$\vinput{plate_dependence_graph}$}
+\caption{Plate notation as a way to summarize conditional dependencies. Shaded nodes represent \textit{observed} variables.
  Here, the $X_i$ are conditionally dependent on $Y$. In plate notation all the $X_i$ are summarized as one plate.}
   \label{fig:plate}
 \end{figure}
 
 The joint probability of the probabilistic graphical model depicted in (\autoref{fig:plate}) is
 \begin{align}
-Pr[X_1,\ldots,X_n] &=\prod_{i=1}^nPr[X_i | \parent(X_i)] \\
-                            &= \prod_{i=1}^nPr[X_i | Y] \notag
+\Pr[X_1,\ldots,X_n] &=\prod_{i=1}^n\Pr[X_i | \parent(X_i)] \\
+                            &= \prod_{i=1}^n\Pr[X_i | Y] \notag
 \end{align}
 
 The plate notation will be used in the next section to have a concise representation of
 Latent Dirichlet Allocation and especially the conditional dependencies.
 
 %\input{plate_lda}
-\ed{
-\subsection{Machine Learning}
-In this section LDA will be discussed in the language of machine learning....
-Machine learning algorithms or problems are usually classified into two broad categories: supervised and unsupervised learning\footnote{Reinforcement learning does not fall into this categorization. Since it is not of importance in this context, it won't be considered here.}. In supervised learning the task is to find a hypothesis or model from labeled data such that the model can correctly classify the data. Given a set of \textit{training examples} $\{x_{1:N}, y_{1:N}\}$, where $x_i \in X$ is an instance or \textit{feature vector} and $y_i \in Y$ is it's corresponding label a supervised machine learning algorithm must find a hypothesis $h: X \rightarrow Y$.
-In contrast to that, in an unsupervised machine learning problem there are no labels. Clustering, for instance, falls into the domain of unsupervised learning. Given data vectors $\{x_{1:N} \}$ the task is to label them. The underlying premise of clustering algorithms (such as \textit{K-Means} for example) is that data that belongs to the same cluster is more \textit{similar} to each other than to data from other clusters. Given an input space $X$ and two clusters $V = \{v_{1:N} | v \in X \}$ and $W= \{w_{1:M} | w \in X \}$ and some notion of similarity $s: X \times X \rightarrow \mathbb{R}$, it must hold that $\forall v_1, v_2 \in V$ and $\forall w \in W: s(v_1, v_2) > s(v_1, w)$.
-Latent Dirichlet Allocation is an unsupervised model, which can be seen as a clustering algorithm. The input space $X$ consists of documents, which exhibit $K$ topics. Unlike \textit{K-Means}, in LDA a document can be part of more than one cluster (see also \ref{fig:experiments}). 
-...which will be discussed in the next section..
-}
+\subsection{Machine Learning and Topic Models} \label{sec:ml}
+In this section Latent Dirichlet Allocation will be discussed in terms of machine learning. Therefore, 
+the distinction between supervised and unsupervised as well as the distinction between discriminative and generative model will
+be clarified.\\
+Machine learning algorithms or problems are usually classified into two broad categories: supervised and unsupervised learning\footnote{Reinforcement learning does not fall into this categorization. Since it is not of importance in this context, it won't be considered here.}. In supervised learning the task is to find a hypothesis or model from labeled data such that the model can correctly classify the data. Given a set of \textit{training examples} $\{x_{1:N}, y_{1:N}\}$, where $x_i \in X$ is an instance or \textit{feature vector} and $y_i \in Y$ is its corresponding label a supervised machine learning algorithm must find a hypothesis $h: X \rightarrow Y$ such that $\forall i: h(x_i) = y_i$.
+In contrast to that, in an unsupervised machine learning problem there are no labels. Clustering, for instance, falls into the domain of unsupervised learning. Given data vectors $\{x_{1:N} \}$ the task is to label them. The underlying premise of clustering algorithms (such as \textit{K-Means} for example) is that data that belongs to the same cluster is more \textit{similar} to each other than to data from other clusters. Given an input space $X$ and two clusters $V = \{v_{1:N} | v \in X \}$ and $W= \{w_{1:M} | w \in X \}$ and some notion of similarity $s: X \times X \rightarrow \mathbb{R}$, it must hold that $\forall v_1, v_2 \in V$ and $\forall w \in W: s(v_1, v_2) > s(v_1, w)$. The objective function is to maximize the similarities within one cluster and minimize the similarities between clusters.
+Latent Dirichlet Allocation is an unsupervised model, which can be seen as a clustering algorithm. The input space $X$ consists of documents, which exhibit $K$ topics. Unlike \textit{K-Means}, in LDA a document can be part of more than one cluster (see also Figure \ref{fig:experiments}). 
+\subsubsection{Discriminative Models}
+Discriminative algorithms, as opposed to generative ones, directly optimize a model for a classification task \cite{jebara2001discriminative}.
+Given an observed variable $x$ and unobserved variable $y$, discriminiative models will give the conditional distribution $P(y | x)$.
+\textit{K-Means} for instance is a similarity-bases, unsupervised, discriminative approach \cite{zhong2005generative}.
+Examples of disriminative models include \textit{linear regression}, \textit{support vector machines} and \textit{nerual networks}.
+However, LDA is a generative model. The assumption is that a corpus is generated by a process, which will be discussed in the next section.
 
-\subsection{Generative Process}
+\subsection{Generative Process} \label{sec:generative}
 Generative models generate data values according to a probability distribution. In machine learning
-generative models are used to estimate the joint probability distribution $Pr(X | Y)$ of observed data $X$
-and labels $Y$. In the context of probabilistic topic models, $Y$ corresponds to the latent variables and $X$
-to the (observable) words in a corpus.
+generative models are used to estimate the joint probability distribution $Pr(X,Y)$ of observed data $X$
+and labels $Y$. In the context of probabilistic topic models, $Y$ corresponds to the latent variables (i.e.~to the unknown parameters) and $X$ to the (observable) words in a corpus.
 Latent Dirichlet Allocation assumes the following generative process for
 a corpus: \\
 
@@ -288,36 +315,12 @@ coming from a process which samples words from a (hidden) distribution over topi
 Every word is generated independently from any other word. The generative process
 does not take word order into account. Hence, the generative model produces a
 bag-of-words, where word order does not play a role. \\
-If $3$ topics are chosen, e.g. \textit{Linguistics, Philosophy} and \textit{Computer Science}, and if 
+If three topics are chosen, e.g. \textit{Linguistics, Philosophy} and \textit{Computer Science}, and if 
 equal probability is given to all of them, then the generative process might produce 
 bag-of-words resembling a text from \textit{Digital Humanities}. By putting more weight 
 on \textit{Linguistics} and \textit{Computer Science} the result would resemble 
 documents from the domain of \textit{Computer Linguistics}.
 The generative process of LDA is depicted as a Bayesian probabilistic model in \autoref{fig:lda_plate}.
-
-
-
-From the Bayesian probabilistic model one can derive the probability of a corpus $\mathcal{D} = \{w_1,...,w_n\}$.
-First, the joint distribution of a mixtures of topics $\theta$, $N$ topics \textbf{z} and $N$ words \textbf{w} can
-be calculated by considering the conditional structure given in the graphical model:
-
-\begin{equation}
-p(\theta, \textbf{z}, \textbf{w} | \alpha, \beta) = p(\theta | \alpha) \prod^{N}_{n=1} p(z_n | \theta)p(w_n | z_n,\beta)
-\end{equation}
-
-In order to arrive at the marginal distribution of one single document \textbf{w}, one must integrate over the (continuous) random variable $\theta$ and sum over the topic variable z.
-
-\begin{equation}
-p(\textbf{w} | \alpha, \beta) = \int p(\theta | \alpha) \bigg( \prod^{N}_{n=1} \sum_{z_n} p(z_n | \theta)p(w_n | z_n,\beta) \bigg) d\theta
-\end{equation}
-
-The probability of the corpus $p(\mathcal{D} | \alpha, \beta)$ is now obtained by multiplying all the marginal probabilities of the $M$ documents:
-
-\begin{equation}
-p(\mathcal{D} | \alpha, \beta) = \prod_{d=1}^{M} \int p(\theta_d | \alpha) \bigg( \prod^{N_d}_{n=1} \sum_{z_{dn}} p(z_{dn} | \theta_d)p(w_n | z_{dn},\beta) \bigg) d\theta_d
-\end{equation}
-
-
 
 \begin{figure}[H]
 \centering
@@ -333,138 +336,52 @@ as a bar chart, the colored coins are the topic assignments for each word.
 
 
 
+
+\subsection{LDA as a graphical model} \label{sec:graphical}
+
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{img/lda_plate}
+%\includegraphics[scale=0.4]{img/lda_plate}
+$\vinput{lda_plate}$
  \caption{Plate notation for Latent Dirichlet Allocation corresponding to the generative process. Every vertex depicts a random variable.
- The shaded node $w_{d,n}$ stands for the observed words. Everything else is not observed and must be inferred. Taken from \cite{blei2012probabilistic}}.
+ The shaded node $w_{d,n}$ stands for the observed words. Everything else is not observed and must be inferred.}
   \label{fig:lda_plate}
 \end{figure}
 
-\subsection{Experiments and Applications}
-To fully grasp what LDA will produce as output, this section will provide an example with 
-\textit{real world} data. \\
-Gensim\footnote{ https://radimrehurek.com/gensim/index.html } is a tool for unsupervised semantic modeling.
-The idea is to define three topics by using Wikipedia articles. Then, all those Wikipedia articles are
-put into one corpus to see whether LDA can reproduce those three original topics.
-\\
-With Gensim the model can be trained very easily\footnote{the complete ipython notebook can be found here: https://github.com/flobeck/algo-seminar/blob/master/ipython-notebook/lda$\textunderscore$mixture.ipynb}: \\
-\begin{lstlisting}[label=noam,caption=\; Query for a document]
-K = 3
-lda = ldamodel.LdaModel(CORPUS, id2word=dictionary, num_topics=K, 
-update_every=1, chunksize=1, passes=350)
-\end{lstlisting}
-
-\texttt{CORPUS} contains the following preprocessed Wikipedia articles. The preprocessing steps comprise removing stop words and
-transforming the documents to a bag-of-words.
-\vspace{1.3cm}
-
-\begin{tabular}{l l}
-$\bullet$ \textit{Computer science} & \parbox[t]{10cm}{Algorithm, Computation, Computer Programming,  Programming Language, Computational complexity theory, Computability theory, Artificial Intelligence}\\  
-\\
-$\bullet$ \textit{Philosophy} & \parbox[t]{10cm}{Epistemology, Metaphysics, Continental philosophy, Ancient Greek,\\ Ethics, Aesthetics, Art, Phenomenology (philosophy), Pythagoras, Plato} \\
-\\
-$\bullet$ \textit{Linguistics} &  \parbox[t]{10cm}{Language, Semantics, Syntax, Phonology, Grammar,
-               Phonetics, Pragmatics,  Corpus linguistics, Linguistic prescription, Linguistic description}
-\end{tabular}
-
-\vspace{1.3cm}
-
-                               
-The output of a call of LDA with \texttt{K=3} is summarized in table \ref{table:lda_output}.
-
-
-\begin{table}[h!]
-\caption{Each of the three topics is a distribution over the words. E.g. topic 1 resembles \textit{computer science}.
-The table only shows the most relevant words for each topic.}
-\label{table:lda_output}
-\begin{tabular}{l l l}
-\textbf{TOPIC} & \textbf{REL. FREQUENCIES} & \textbf{WORD} \\
-
-1  &   0.010 & programming  \\
-    &   0.009 & turing \\
-    &   0.008 & problem \\
-    &   0.007 & machine \\
-    &   0.006 & problems \\
-    &   0.006 & algorithms\\
-    &   0.006 & algorithm  \\
-    &   0.006 & set \\
-    &   0.006 & complexity \\ 
-    &   0.005 & time  \\
- \hline \\
- 2 &  0.008 & plato \\
-    &  0.006 & plato's  \\
-    &  0.006 & knowledge \\ 
-    &  0.005 & pythagoras \\
-    &  0.005 & philosophy  \\
-    &  0.004 & phenomenology \\
-    &  0.004 & greek  \\
-    &  0.004 & according  \\ 
-    &  0.004 & socrates  \\
-    &  0.003 & theory \\
-  \hline \\
-3 & 0.019 & language \\
-   & 0.009 & languages  \\
-   & 0.007 & art \\
-   & 0.005 & meaning \\ 
-   & 0.005 & linguistic \\
-   & 0.005 & human \\
-   & 0.004 & ethics \\
-   & 0.004 & speech \\
-   & 0.004 & study \\
-   & 0.004 & grammar 
-\end{tabular}
-\end{table}
-
-\noindent
-Given a set corpus of Wikipedia articles, LDA finds three topics which resemble the topics \textit{computer science},
-\textit{philosophy} and \textit{linguistics}. 
-
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.4]{img/experiment}
- \caption{Topic proportions for some of the Wikipedia articles that were used to train the model. The Wikipedia
- article on `Pythagoras', for instance, is classified as a document in the category `philosophy' with very high confidence.
- Note that albeit the confidence is very high it is not $100\%$. Due to the model every document exhibits all the $K$ topics, but to a very different degree.}
-   \label{fig:experiments}
-\end{figure}
-
-\noindent
-Furthermore, it is possible to query where on the topic simplex an unseen document is located:
-
-\begin{lstlisting}[label=noam,caption=\; Query for a document]
-noam = wikipedia.page("Noam Chomsky").content
-bow_vector = dictionary.doc2bow(tokenize(noam))
-print lda[bow_vector]
-
->> [(1, 0.032599745516170064), 
-(2, 0.30504589551791855),
-(3, 0.66235435896591133)]
-\end{lstlisting}
-
-
-In this case (Listing 2), the Wikipedia article on the linguist \textit{Noam Chomsky} is made up of
-$66\%$ Topic 3 (\textit{Linguistics}), $30\%$ Topic 2 (\textit{Computer Science}) and
-$3\%$ Topic 1 (\textit{Philosophy}).
-
-\ed{
-With Latent Dirichlet Allocation a model for document classification can be trained.
-}
+From the Bayesian probabilistic model one can derive the probability of a corpus $\mathcal{D} = \{\boldsymbol{w_1},...,\boldsymbol{w_n}\}$.
+First, the joint distribution of a mixtures of topics $\theta$, $N$ topics \textbf{z} and $N$ words \textbf{w} can
+be calculated by considering the conditional structure given in the graphical model:
+\begin{equation}
+p(\theta, \textbf{z}, \textbf{w} | \alpha, \beta) = p(\theta | \alpha) \prod^{N}_{n=1} p(z_n | \theta)p(w_n | z_n,\beta)
+\end{equation}
+In order to arrive at the marginal distribution of one single document \textbf{w}, one must integrate over the (continuous) random variable $\theta$ and sum over the topic variable z.
+\begin{equation}
+p(\textbf{w} | \alpha, \beta) = \int p(\theta | \alpha) \bigg( \prod^{N}_{n=1} \sum_{z_n} p(z_n | \theta)p(w_n | z_n,\beta) \bigg) d\theta
+\end{equation}
+The probability of the corpus $p(\mathcal{D} | \alpha, \beta)$ is now obtained by multiplying all the marginal probabilities of the $M$ documents:
+\begin{equation}
+p(\mathcal{D} | \alpha, \beta) = \prod_{d=1}^{M} \int p(\theta_d | \alpha) \bigg( \prod^{N_d}_{n=1} \sum_{z_{dn}} p(z_{dn} | \theta_d)p(w_n | z_{dn},\beta) \bigg) d\theta_d
+\end{equation}
 
 
 
+\subsection{(Bayesian) Inference} \label{sec:inference}
 
-\subsection{(Bayesian) Inference}
-
+In Bayesian statistics, one is interested in computing the degree of belief $p(h | D)$ of a hypothesis $h \in \mathcal{H}$ given data $D$, where $\mathcal{H}$ is the space of all hypotheses. Bayes theorem states:
+\begin{equation}
+p(h | D) = \frac{p(h)p(D | h)}{p(D)}
+\end{equation}
+$p(h | D)$ is also called the posterior.\\
 Inference means computing the \textit{posterior} and corresponds to `\textit{reversing}' the generative model.
-In other words, inference is about fitting a generative model (or rather the hidden parameters), such that it explains the observed data.
+In other words, inference is about fitting a generative model (or rather the hidden parameters), such that it explains the observed data. In Bayesian statistics, maximum likelihood estimation is used in order to estimate the parameters of a model given data.
+Let $\tau$ be the parameter of a statistical model and let $\boldsymbol{x} = {x_1,...,x_n}$ be the observations, then the maximum likelihood estimator is defined to be \cite{duda2012pattern}:
+\begin{equation} \label{eq:MLE}
+\underset{\tau}{\operatorname{arg\,max}} \, \mathcal{L}(\tau\, ; \boldsymbol{x}) = \underset{\tau}{\operatorname{arg\,max}}\, P(\boldsymbol{x} | \tau)
+\end{equation}
 
-Many methods solving the problem of maximum a posteriori estimation have been proposed. The original paper on LDA \cite{blei2003latent} suggested a Variational Bayesian method which can be understood as an extension of the expectation-maximization algorithm \cite{fox2012tutorial}. Gibbs Sampling as a way to compute the
-posterior was proposed by Steyvers and Griffiths \cite{steyvers2007probabilistic}	 \\
-
-
-
+Many methods solving the problem of maximum a posteriori estimation have been proposed. The original paper on LDA \cite{blei2003latent} suggested a Variational Bayesian method, which directly maximizes $P(\boldsymbol{w} | \varphi, \theta)$, which corresponds to equation \ref{eq:MLE} and can be understood as an extension of the expectation-maximization algorithm \cite{fox2012tutorial}. Gibbs Sampling as a way to compute the
+posterior was proposed by Steyvers and Griffiths \cite{steyvers2007probabilistic}. They considered the posterior distribution
+over the assignments of words $w_{1:D}$ to topics $z_{1:D}$: \\
 
 \begin{equation} \label{post}
 p(\beta_{1:K}, \theta_{1:D}, z_{1:D} | w_{1:D} ) = \frac{p(\beta_{1:K}, \theta_{1:D}, z_{1:D},w_{1:D} )}{p(w_{1:D})}
@@ -475,11 +392,11 @@ compute. To compute $p(w_{1:D})$ one would have to sum up the joint distribution
 
 
 
-\subsubsection{Gibbs Sampling}
+\subsubsection{Gibbs Sampling} \label{sec:gibbs}
 
 Gibbs Sampling, named after the physicist Josiah Willard Gibbs, is a Markov Chain Monte Carlo Algorithm (MCMC) and can be used to approximate the marginal and posterior 
 distribution by constructing a Markov chain which converges to the target distribution.
-A Markov chain represents a random process, where going from one state to another is determined by a transition matrix $T$.
+A Markov chain represents a random process, where going from one state to another is determined by a transition matrix $P$.
 An entry $p_{i,j}$ corresponds to the probability of going from state $i$ to state $j$.
 The goal of Gibbs Sampling is to integrate out the per-document topic proportions $\theta$.
 \noindent
@@ -499,7 +416,7 @@ It was shown \cite{griffiths2004finding} that \autoref{eq:gibbs} can be calculat
 p(z_{d,n} = k | z_{\textunderscore_ {d,n}},w,\alpha, \beta) \propto \frac{C_{n,k}^{WT}+\beta}
 {\sum_{n=1}^{W}C_{n,k}^{WT}+W\beta} \cdot \frac{C_{d,k}^{DT}+\alpha}{\sum_{t=1}^{T}C_{d,t}^{DT}+T\alpha}
 \end{equation}
-
+where $T$ is the number of topics, and $W$ the number of unique words.
 $C_{n,k}^{WT}$ and $C_{d,k}^{DT}$ are matrices. $C_{n,k}^{WT}$ is the number of times topic $k$ was assigned to 
 word $n$. On the other hand $C_{d,k}^{DT}$ is the number of times topic $k$ was assigned to words in document $d$.
 \noindent
@@ -517,10 +434,7 @@ and the second term to an estimate of $\theta_j$
 \begin{equation}
 \hat{\theta}_j = \frac{C_{d,j}^{DT}+\alpha}{\sum_{t=1}^{T}C_{d,t}^{DT}+T\alpha}
 \end{equation}
-
-
-
-
+\vspace{1cm}
 \begin{example}
 The following step-by-step example illustrates how Gibbs Sampling can be used to assign a topic to a word.
 Consider the sentence (which represents one document out of a corpus):
@@ -595,7 +509,7 @@ repeated several times, until the assignments do not change anymore.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.30]{img/topics_distr}
- \caption{Sampling according to the green area.}
+ \caption{Sampling according to the green area. Blue bars represent the topic distribution, the yellow bars to the word distribution over topics.}
   \label{fig:topics_distr}
 \end{figure}
 
@@ -603,8 +517,118 @@ repeated several times, until the assignments do not change anymore.
 \end{example}
 
 
+\subsection{Experiments and Applications}
+To fully grasp what LDA will produce as output, this section will provide an example with 
+\textit{real world} data. \\
+Gensim\footnote{ https://radimrehurek.com/gensim/index.html } is a tool for unsupervised semantic modeling.
+The idea is to define three topics by using Wikipedia articles. Then, all those Wikipedia articles are
+put into one corpus to see whether LDA can reproduce those three original topics. 
+Basically this is a clustering task with a predefined number of clusters $K$. Similar to \textit{K-Means} LDA will 
+use the training set (the predefined Wikipedia articles) and will find the clusters that maximize the model parameters.  
+\\
+With Gensim the model can be trained very easily\footnote{the complete ipython notebook can be found here: https://github.com/flobeck/algo-seminar/blob/master/ipython-notebook/lda$\textunderscore$mixture.ipynb}: \\
+\begin{lstlisting}[label=noam,caption=\; Training the LDA model]
+K = 3
+lda = ldamodel.LdaModel(CORPUS, id2word=dictionary, num_topics=K, 
+update_every=1, chunksize=1, passes=350)
+\end{lstlisting}
+Gensim uses the Gibbs sampling procedure that was discussed in section \ref{sec:gibbs}.
+\texttt{CORPUS} contains the following preprocessed Wikipedia articles. The preprocessing steps comprise removing stop words (i.e.~most common words) and transforming the documents to a bag-of-words.
+\vspace{1.3cm}
+
+\begin{tabular}{l l}
+$\bullet$ \textit{Computer science} & \parbox[t]{10cm}{Algorithm, Computation, Computer Programming,  Programming Language, Computational complexity theory, Computability theory, Artificial Intelligence}\\  
+\\
+$\bullet$ \textit{Philosophy} & \parbox[t]{10cm}{Epistemology, Metaphysics, Continental philosophy, Ancient Greek,\\ Ethics, Aesthetics, Art, Phenomenology (philosophy), Pythagoras, Plato} \\
+\\
+$\bullet$ \textit{Linguistics} &  \parbox[t]{10cm}{Language, Semantics, Syntax, Phonology, Grammar,
+               Phonetics, Pragmatics,  Corpus linguistics, Linguistic prescription, Linguistic description}
+\end{tabular}
+
+\vspace{1.3cm}
+
+                               
+The output of a call of LDA with \texttt{K=3} is summarized in table \ref{table:lda_output}.
 
 
+\begin{table}[h!]
+\caption{Each of the three topics is a distribution over the words. E.g. topic 1 resembles \textit{computer science}.
+The table only shows the most relevant words for each topic.}
+\label{table:lda_output}
+\begin{tabular}{l l l}
+\textbf{TOPIC} & \textbf{REL. FREQUENCIES} & \textbf{WORD} \\
+
+1  &   0.010 & programming  \\
+    &   0.009 & turing \\
+    &   0.008 & problem \\
+    &   0.007 & machine \\
+    &   0.006 & problems \\
+    &   0.006 & algorithms\\
+    &   0.006 & algorithm  \\
+    &   0.006 & set \\
+    &   0.006 & complexity \\ 
+    &   0.005 & time  \\
+ \hline \\
+ 2 &  0.008 & plato \\
+    &  0.006 & plato's  \\
+    &  0.006 & knowledge \\ 
+    &  0.005 & pythagoras \\
+    &  0.005 & philosophy  \\
+    &  0.004 & phenomenology \\
+    &  0.004 & greek  \\
+    &  0.004 & according  \\ 
+    &  0.004 & socrates  \\
+    &  0.003 & theory \\
+  \hline \\
+3 & 0.019 & language \\
+   & 0.009 & languages  \\
+   & 0.007 & art \\
+   & 0.005 & meaning \\ 
+   & 0.005 & linguistic \\
+   & 0.005 & human \\
+   & 0.004 & ethics \\
+   & 0.004 & speech \\
+   & 0.004 & study \\
+   & 0.004 & grammar 
+\end{tabular}
+\end{table}
+
+\noindent
+Given a set corpus of Wikipedia articles, LDA finds three topics which resemble the topics \textit{computer science},
+\textit{philosophy} and \textit{linguistics}. 
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{img/experiment}
+ \caption{Topic proportions for some of the Wikipedia articles that were used to train the model. The Wikipedia
+ article on `Pythagoras', for instance, is classified as a document in the category `philosophy' with very high confidence.
+ Note that albeit the confidence is very high it is not $100\%$. Due to the model every document exhibits all the $K$ topics, but to a very different degree.}
+   \label{fig:experiments}
+\end{figure}
+
+\noindent
+Furthermore, it is possible to query where on the topic simplex an unseen document is located:
+
+\begin{lstlisting}[label=noam,caption=\; Query for a document]
+noam = wikipedia.page("Noam Chomsky").content
+bow_vector = dictionary.doc2bow(tokenize(noam))
+print lda[bow_vector]
+
+>> [(1, 0.032599745516170064), 
+(2, 0.30504589551791855),
+(3, 0.66235435896591133)]
+\end{lstlisting}
+
+
+In this case (Listing 2), the Wikipedia article on the linguist \textit{Noam Chomsky} is made up of
+$66\%$ Topic 3 (\textit{Linguistics}), $30\%$ Topic 2 (\textit{Computer Science}) and
+$3\%$ Topic 1 (\textit{Philosophy}).
+Blei et.~al showed that one can train a model for document classification with Latent Dirichlet Allocation \cite{blei2003latent}. Instead of using individual words as features, one can use the topic proportions for each document. 
+A document can then be classified by using LDA to extract the topic proportion feature vectors of the training 
+set and then a finding decision boundary with a Support Vector Machine (SVM) or some other linear classifier.
+
+\clearpage
 
 \subsection{Conclusion}
 
@@ -618,16 +642,7 @@ Words come from a distribution over topics, which are again distribution over wo
 Reversing the generative model by applying Gibbs sampling yields a solution of 
 the inference problem, which can not be solved analytically. 
 
-
-\clearpage
-
-
-
-
-
-
-
-
+\vspace{3cm}
 
 \bibliography{references}
 
